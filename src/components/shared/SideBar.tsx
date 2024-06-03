@@ -6,6 +6,10 @@
   import Image from 'next/image';
   import { TbLayoutDashboard } from "react-icons/tb";
   import { usePathname } from 'next/navigation';
+  import { FaHandHoldingDollar } from "react-icons/fa6";
+  import { BsCurrencyDollar } from "react-icons/bs";
+  import { CgLogOut } from "react-icons/cg";
+  import { SignOutButton } from "@clerk/nextjs";
   function AdminSideBar() {
     const pathname = usePathname();
 
@@ -17,9 +21,14 @@
           link:"/dashboard"
               },
         {
-          title:"hello",
-          icon:<TbLayoutDashboard size={25} />,
-          link:"/dashboar"
+          title:"Budgets",
+          icon:<FaHandHoldingDollar size={25} />,
+          link:"/dashboard/budget"
+              },
+        {
+          title:"Expenses",
+          icon:<BsCurrencyDollar size={25} />,
+          link:"/dashboard/expense"
               },
       ]
 
@@ -53,17 +62,17 @@
         )}
           <Link href="/" >
             <span className="self-center ml-2 py-4 flex items-center text-2xl font-bold whitespace-nowrap text-orange-500">
-              <Image src={ASSETS.logo} alt="logo" height={50} width={200} className="object-cover" />
+              <Image src={ASSETS.logo} alt="logo" height={150} width={200} className="object-cover" />
               </span>
             </Link>
-              <ul className="space-y-2 font-medium">
+              <ul className="space-y-3 font-medium">
                 {
 
 
   navLinks.map((item:any,index:number)=>(
 
     <li key={index}>
-    <Link href={`${item.link}`} className={`flex items-center p-2 text-gray-900 rounded-lg ${pathname== item.link ? "bg-gray-200": "even: hover:bg-gray-100 "}     group`}>
+    <Link href={`${item.link}`} className={`flex gap-1 items-center p-2 text-gray-900 rounded-lg ${pathname== item.link ? "bg-gray-200": "even: hover:bg-gray-100 "}     group`}>
     <span className={`w-5 h-6 text-gray-500 transition duration-75 ${pathname== item.link ? "text-gray-900": "group-hover:text-gray-900"}   `}>
     {item.icon}
     </span>
@@ -77,6 +86,18 @@
                 }
           
               </ul>
+
+              <ul >
+              <SignOutButton>
+              <li className={` cursor-pointer mt-52 flex rounded-md gap-1 items-center p-2 text-gray-900 rounded-lgeven: hover:bg-red-500 hover:text-white   group`}>
+    <span className={`w-5 h-6 text-gray-500 transition duration-75  group-hover:text-white  `}>
+    <CgLogOut size={25} />
+    </span>
+      <span className="ms-3 font-semibold">Logout</span>
+  </li>
+  </SignOutButton>
+              </ul>
+
           </div>
         </aside>
       </>

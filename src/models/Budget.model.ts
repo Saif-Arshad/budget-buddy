@@ -1,8 +1,7 @@
 import mongoose from 'mongoose';
 
 
-const budget = new mongoose.Schema(
-    {
+const budget = new mongoose.Schema({
         title:{
             type: 'string',
             required: true
@@ -10,11 +9,11 @@ const budget = new mongoose.Schema(
         amount: {
             type: 'number',
             required: true
-    },
-    expense:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'Expense'
-    }
+        },
+        expense:{
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'Expense'
+        }
     },
     {timestamps:true}
 )

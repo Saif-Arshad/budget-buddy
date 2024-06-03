@@ -10,7 +10,8 @@ export default function Page() {
 <Image
 src={ASSETS.login}
 alt="signIn Now"
-layout="fill"
+height={400}
+width={500}
 />
       </div>
       <div className="w-full md:w-6/12 flex items-center justify-center min-h-screen">
