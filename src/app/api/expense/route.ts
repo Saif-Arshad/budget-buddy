@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
       await ExpenseModel.save();
       return NextResponse.json({
         message: "Expense Added",
-        expenseadded: true,
+        added: true,
       });
     } catch (error) {
       return NextResponse.json({
@@ -63,11 +63,10 @@ export async function POST(request: NextRequest) {
             });
         }
         
-        if(data.title) {
+        if(data.title || data.amount) {
             expenseToUpdate.title = data.title;
-        }
-        if(data.amount) {
             expenseToUpdate.amount = data.amount;
+
         }
         
         await expenseToUpdate.save();

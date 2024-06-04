@@ -10,10 +10,11 @@ const budget = new mongoose.Schema({
             type: 'number',
             required: true
         },
-        expense:{
+        expense:
+        [{
             type:mongoose.Schema.Types.ObjectId,
-            ref:'Expense'
-        }
+            ref:'Expense',
+        }]
     },
     {timestamps:true}
 )
