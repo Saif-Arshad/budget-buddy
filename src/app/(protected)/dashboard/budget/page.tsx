@@ -1,10 +1,8 @@
 import React from 'react'
-
+import AllBudget from '@/components/template/pageSection/BudgetPageSection/AllBudget'
 function page() {
   return (
-    <div>
-      <h1>Hello from Budget</h1>
-    </div>
+   <AllBudget/>
   )
 }
 
