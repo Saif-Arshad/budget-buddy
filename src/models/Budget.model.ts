@@ -21,8 +21,7 @@ const budget = new mongoose.Schema({
             ref:'Expense',
         }],
         owner:{
-            type:mongoose.Schema.Types.ObjectId,
-            ref:'User',
+            type:String,
             required:true
         }
       

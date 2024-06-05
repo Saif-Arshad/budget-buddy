@@ -1,19 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client"
-
 import React from 'react'
-import { useUser } from "@clerk/clerk-react";
-
+import useCurrentUser from '@/customHooks/useCurrentUser';
 function page() {
-  const { isSignedIn, user} = useUser();
-  let userName = "";
-  let userEmail = "";
-  if(user){
- userName= user.fullName || "No name found"
-  userEmail = user.primaryEmailAddress?.emailAddress || "No email address found"
-  console.log(userName,userEmail)
-  console.log(user)
-  }
+  const {userEmail,userName} = useCurrentUser()
 
   return (
       <>

@@ -7,8 +7,6 @@ import { ASSETS } from '../../../public/Assets';
 import { useUser } from "@clerk/clerk-react";
 import {UserButton} from '@clerk/nextjs'
 
-
-
 function Header() {
   const { isSignedIn} = useUser();
   return (
@@ -28,13 +26,15 @@ function Header() {
       {
         isSignedIn ?
         <div className="flex-shrink-0 flex px-2 py-3 items-center space-x-8">
+        <Link className="text-gray-700 hover:text-indigo-700 text-sm font-medium" href="/dashboard">Dashboard</Link>
+
          <UserButton/>
       </div>
 
         :
         <div className="flex-shrink-0 flex px-2 py-3 items-center space-x-8">
         <Link className="text-gray-700 hover:text-indigo-700 text-sm font-medium" href="/sign-in">Login</Link>
-        <Link className="text-gray-800 bg-indigo-100 hover:bg-indigo-200 inline-flex items-center justify-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm " href="/sign-up">Get Started
+        <Link className="text-gray-800 bg-indigo-50 hover:bg-indigo-200 inline-flex items-center justify-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm " href="/sign-up">Get Started
         </Link>
       </div>
       }

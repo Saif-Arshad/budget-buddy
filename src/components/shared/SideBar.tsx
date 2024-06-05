@@ -9,11 +9,11 @@
   import { FaHandHoldingDollar } from "react-icons/fa6";
   import { BsCurrencyDollar } from "react-icons/bs";
   import { CgLogOut } from "react-icons/cg";
-  import { SignOutButton } from "@clerk/nextjs";
+  import { useClerk } from '@clerk/nextjs';
   function AdminSideBar() {
+    
     const pathname = usePathname();
-
-
+    const {signOut}  = useClerk();
       const navLinks=[
         {
           title:"Dashboard",
@@ -88,14 +88,12 @@
               </ul>
 
               <ul >
-              <SignOutButton>
-              <li className={` cursor-pointer mt-52 flex rounded-md gap-1 items-center p-2 text-gray-900 rounded-lgeven: hover:bg-red-500 hover:text-white   group`}>
+              <li onClick={() => signOut({ redirectUrl: '/' })} className={` cursor-pointer mt-52 flex rounded-md gap-1 items-center p-2 text-gray-900 rounded-lgeven: hover:bg-red-500 hover:text-white   group`}>
     <span className={`w-5 h-6 text-gray-500 transition duration-75  group-hover:text-white  `}>
     <CgLogOut size={25} />
     </span>
       <span className="ms-3 font-semibold">Logout</span>
   </li>
-  </SignOutButton>
               </ul>
 
           </div>
