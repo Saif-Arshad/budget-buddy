@@ -10,11 +10,22 @@ const budget = new mongoose.Schema({
             type: 'number',
             required: true
         },
+        slug:{
+            type:String,
+            required:true,
+            unique:true
+        },
         expense:
         [{
             type:mongoose.Schema.Types.ObjectId,
             ref:'Expense',
-        }]
+        }],
+        owner:{
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'User',
+            required:true
+        }
+      
     },
     {timestamps:true}
 )

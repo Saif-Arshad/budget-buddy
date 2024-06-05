@@ -4,6 +4,8 @@ import "@/app/globals.css";
 import {
   ClerkProvider
 } from '@clerk/nextjs'
+import Footer from "@/components/shared/Footer";
+import Header from "@/components/shared/Header";
 
 
 export const metadata: Metadata = {
@@ -20,8 +22,9 @@ export default function RootLayout({
     <html lang="en">
       <body >
         <ClerkProvider>
-
+<Header/>
         {children}
+        <Footer/>
         </ClerkProvider>
         
         </body>
