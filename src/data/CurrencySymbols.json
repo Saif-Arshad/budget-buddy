@@ -1,0 +1,41 @@
+[
+    {
+         "currency_name": "US Dollar",
+     "currency_symbol": "$" 
+    },
+    {
+         "currency_name": "Canadian Dollar",
+     "currency_symbol": "c$" 
+    },
+    {
+         "currency_name": "British Pound",
+     "currency_symbol": "£" 
+    },
+    {
+         "currency_name": "Australian Dollar",
+     "currency_symbol": "a$" 
+    },
+    {
+         "currency_name": "Japanese Yen",
+     "currency_symbol": "¥" 
+    },
+    {
+         "currency_name": "Chinese Yuan",
+     "currency_symbol": "¥" 
+    },
+    {
+         "currency_name": "Euro",
+     "currency_symbol": "€" 
+    },
+    {
+         "currency_name": "Brazilian Real",
+     "currency_symbol": "R" 
+    },
+    {
+         "currency_name": "Russian Ruble",
+     "currency_symbol": "₽" 
+    },
+    {
+         "currency_name": "South African Rand",
+     "currency_symbol": "R" }
+  ]
