@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -9,30 +11,31 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
- 
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
- 
+
+import {ThunkDispatch} from "@reduxjs/toolkit";
 import { BudgetYep } from "@/validations/Budget.validation";
 import { Button } from "@/components/ui/button";
 import AddNewBudget from "./AddNewBudget";
 import { useFormik } from "formik";
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from "react-redux";
+import { createBudget } from "@/store/features/AddBudget.Slice";
+import useCurrentUser from "@/customHooks/useCurrentUser";
 
 function DialogAddBudget() {
-    const currencySymbolls = useSelector((state:any) => state.currency)
-    console.log(currencySymbolls)
-
-  const submitHandler = (value: any) => {
-    console.log(value);
+    const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
+  const { userEmail } = useCurrentUser();
+  const [selectedCurrency, setSelectedCurrency] = useState("");
+  const currencySymbols = useSelector((state: any) => state.currency.items);
+  const Budget = useSelector((state: any) => state.budget);
+  console.log(Budget);
+  const submitHandler = (value: any, { resetForm }: any) => {
+      console.log(value);
+    const allValues = {...value, userEmail};
+    console.log(allValues);
+    dispatch(createBudget(allValues));
+    resetForm();
   };
+
   const Formik = useFormik({
     initialValues: {
       title: "",
@@ -42,6 +45,11 @@ function DialogAddBudget() {
     validationSchema: BudgetYep,
     onSubmit: submitHandler,
   });
+
+  const handleSelectChange = (value: any) => {
+    setSelectedCurrency(value);
+    Formik.setFieldValue("currency", value);
+  };
 
   console.log(Formik);
 
@@ -62,13 +70,9 @@ function DialogAddBudget() {
           </DialogHeader>
           <form onSubmit={Formik.handleSubmit}>
             <div className="grid gap-4 py-4">
-              <div className="flex flex-col  gap-2">
-                <label htmlFor="title" className=" font-semibold capitalize">
-                  {Formik.errors.title ? (
-                    <p className="text-red-600">{Formik.errors.title}</p>
-                  ) : (
-                    " Budget Title "
-                  )}
+              <div className="flex flex-col gap-2">
+                <label htmlFor="title" className="font-semibold capitalize">
+                  Budget Title
                 </label>
                 <input
                   id="title"
@@ -79,13 +83,9 @@ function DialogAddBudget() {
                   className="text-sm py-2 outline-none border border-slate-300 px-5 rounded-md"
                 />
               </div>
-              <div className="flex flex-col   gap-2">
-                <label htmlFor="amount" className=" font-semibold capitalize">
-                  {Formik.errors.amount ? (
-                    <p className="text-red-600">{Formik.errors.amount}</p>
-                  ) : (
-                    " Budget Amount "
-                  )}
+              <div className="flex flex-col gap-2">
+                <label htmlFor="amount" className="font-semibold capitalize">
+                  Budget Amount
                 </label>
                 <input
                   id="amount"
@@ -94,40 +94,41 @@ function DialogAddBudget() {
                   onBlur={Formik.handleBlur}
                   value={Formik.values.amount}
                   onChange={Formik.handleChange}
-                  className="text-sm py-2 outline-none border border-slate-300 px-5 rounded-md"
+                  className="text-sm py-2 outline-none border cursor-pointer border-slate-300 px-5 rounded-md"
                 />
               </div>
-              <Select>
-      <SelectTrigger className="w-full">
-        <SelectValue placeholder="Select your Currency" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectLabel>Fruits</SelectLabel>
-
-          <SelectItem value="apple">Apple</SelectItem>
-          <SelectItem value="banana">Banana</SelectItem>
-          <SelectItem value="blueberry">Blueberry</SelectItem>
-          <SelectItem value="grapes">Grapes</SelectItem>
-          <SelectItem value="pineapple">Pineapple</SelectItem>
-        </SelectGroup>
-      </SelectContent>
-    </Select>
+              <select
+                className="w-full p-2 cursor-pointer outline-none border border-slate-300 px-5 rounded-md"
+                onChange={(e) => handleSelectChange(e.target.value)}
+                value={selectedCurrency}
+                required
+              >
+                <option value="" disabled>
+                  Select Currency
+                </option>
+                {currencySymbols.map((item: any, index: number) => (
+                  <option value={item.currency_name} key={index}>
+                    {item.currency_symbol}
+                  </option>
+                ))}
+              </select>
+              {/* <svg className="h-2" viewBox="0 0 10 6">
+    <polyline points="1 1 5 5 9 1"/>
+  </svg> */}
+            </div>
+            <div className="w-full flex justify-end mt-8">
+              <DialogClose asChild>
+                <Button
+                  type="submit"
+                  disabled={
+                    Formik.errors.amount || Formik.errors.title ? true : false
+                  }
+                >
+                  Create Budget
+                </Button>
+              </DialogClose>
             </div>
           </form>
-
-          <DialogFooter>
-            <DialogClose asChild>
-              <Button
-                type="submit"
-                disabled={
-                  Formik.errors.amount || Formik.errors.title ? true : false
-                }
-              >
-                Create Budget
-              </Button>
-            </DialogClose>
-          </DialogFooter>
         </DialogContent>
       </Dialog>
     </>

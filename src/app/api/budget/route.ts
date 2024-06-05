@@ -13,6 +13,7 @@ export async function POST (request : NextRequest){
         const newBudget = await Budget.create({
             title: data.title,
             amount:data.amount,
+            currency:data.currency,
             slug:slug,
            owner:data.owner
     })

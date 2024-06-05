@@ -10,6 +10,9 @@ const budget = new mongoose.Schema({
             type: 'number',
             required: true
         },
+        currency:{
+            type:String,
+        },
         slug:{
             type:String,
             required:true,

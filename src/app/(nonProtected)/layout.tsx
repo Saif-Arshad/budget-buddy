@@ -6,6 +6,7 @@ import {
 } from '@clerk/nextjs'
 import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
+import {Providers} from '@/store/ReduxProvider'
 
 
 export const metadata: Metadata = {
@@ -22,9 +23,11 @@ export default function RootLayout({
     <html lang="en">
       <body >
         <ClerkProvider>
+          <Providers>
 <Header/>
         {children}
         <Footer/>
+        </Providers>
         </ClerkProvider>
         
         </body>
