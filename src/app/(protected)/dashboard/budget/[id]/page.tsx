@@ -1,11 +1,11 @@
+import AddExpense from '@/components/template/pageSection/DetailBudgetPageSection/AddExpense'
 import React from 'react'
 
 function page(slug:any) {
     console.log(slug)
+    const detailedId = slug.params.id
     return (
-    <div>
-      hey this is {slug.params.id}
-    </div>
+      <AddExpense id={detailedId}/>
   )
 }
 

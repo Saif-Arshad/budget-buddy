@@ -24,3 +24,30 @@ export async function GET(req:NextRequest) {
     
     }
 }
+export async function DELETE(request:NextRequest){
+    const {pathname } = new URL(request.url);
+    const slug = pathname.split('/').pop(); 
+    console.log(slug,pathname)
+    await connectDB();
+
+    try {
+        console.log("delete")
+        const deleteItem = await Budget.findByIdAndDelete(slug);
+        console.log(deleteItem)
+
+        if(!deleteItem) {
+            return NextResponse.json({
+                error: "Item not found",
+            });
+        }
+
+        return NextResponse.json({ 
+            deleteItem,
+            deleted: "successful"
+        });
+    } catch(e) {
+        return NextResponse.json({ 
+            error: e,
+        });
+    }
+}
