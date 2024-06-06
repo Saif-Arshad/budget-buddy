@@ -29,7 +29,6 @@ function DialogAddBudget() {
   const Budget = useSelector((state: any) => state.budget);
   console.log(Budget);
   const submitHandler = (value: any, { resetForm }: any) => {
-      console.log(value);
     const allValues = {...value, userEmail};
     console.log(allValues);
     dispatch(createBudget(allValues));

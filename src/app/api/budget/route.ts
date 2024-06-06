@@ -7,15 +7,12 @@ export async function POST (request : NextRequest){
     const data = await request.json()
     console.log(data)
     connectDB()
-    const slug = data.title.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'')
-    console.log(slug)
     try{
         const newBudget = await Budget.create({
             title: data.title,
             amount:data.amount,
             currency:data.currency,
-            slug:slug,
-           owner:data.owner
+           owner:data.userEmail
     })
     
     await newBudget.save()

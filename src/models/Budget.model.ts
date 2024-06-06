@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 const budget = new mongoose.Schema({
         title:{
             type: 'string',
-            required: true
+            required: true,
         },
         amount: {
             type: 'number',
@@ -12,11 +12,6 @@ const budget = new mongoose.Schema({
         },
         currency:{
             type:String,
-        },
-        slug:{
-            type:String,
-            required:true,
-            unique:true
         },
         expense:
         [{
