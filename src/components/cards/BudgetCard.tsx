@@ -2,9 +2,9 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { FaRegEdit } from "react-icons/fa";
 import { useSelector } from 'react-redux';
 import DeleteButton from '../template/pageSection/BudgetPageSection/DeleteButton';
+import EditButton from '../template/pageSection/BudgetPageSection/EditButton';
 
 function BudgetCard(props:any) {
 
@@ -19,9 +19,7 @@ function BudgetCard(props:any) {
     <div className="w-72 h-44 rounded-lg py-2 px-4 bg-slate-50 flex flex-col  cursor-pointer transition-all  shadow-md">
     <div className="flex flex-row items-center justify-end pr-4 gap-x-4">
   
-   <button>
-   <FaRegEdit size={26} color='red' />
-</button>
+<EditButton  id={items._id}/>
 <DeleteButton id={items._id} />  
 
     </div>
@@ -32,7 +30,7 @@ function BudgetCard(props:any) {
       <h1 className='text-xl capitalize font-semibold'>
         {items.amount}
         {
-          currencySymbol
+          currencySymbol ? currencySymbol : "$"
 
         }
       </h1>

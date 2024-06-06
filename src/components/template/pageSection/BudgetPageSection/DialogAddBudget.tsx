@@ -12,7 +12,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-import {ThunkDispatch} from "@reduxjs/toolkit";
+import { ThunkDispatch } from "@reduxjs/toolkit";
 import { BudgetYep } from "@/validations/Budget.validation";
 import { Button } from "@/components/ui/button";
 import AddNewBudget from "./AddNewBudget";
@@ -22,14 +22,14 @@ import { createBudget } from "@/store/features/AddBudget.Slice";
 import useCurrentUser from "@/customHooks/useCurrentUser";
 
 function DialogAddBudget() {
-    const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
+  const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
   const { userEmail } = useCurrentUser();
   const [selectedCurrency, setSelectedCurrency] = useState("");
   const currencySymbols = useSelector((state: any) => state.currency.items);
   const Budget = useSelector((state: any) => state.budget);
   console.log(Budget);
   const submitHandler = (value: any, { resetForm }: any) => {
-    const allValues = {...value, userEmail};
+    const allValues = { ...value, userEmail };
     console.log(allValues);
     dispatch(createBudget(allValues));
     resetForm();
@@ -100,7 +100,6 @@ function DialogAddBudget() {
                 className="w-full p-2 cursor-pointer outline-none border border-slate-300 px-5 rounded-md"
                 onChange={(e) => handleSelectChange(e.target.value)}
                 value={selectedCurrency}
-                required
               >
                 <option value="" disabled>
                   Select Currency

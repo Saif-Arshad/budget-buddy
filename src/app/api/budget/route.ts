@@ -28,3 +28,31 @@ export async function POST (request : NextRequest){
 
     }
 }
+
+
+// update endpint 
+
+
+export async function PATCH(req:NextRequest){
+        const data = await req.json()
+        console.log(data)
+        connectDB()
+        try{
+            const updatedBudget = await Budget.findOneAndUpdate({_id:data.id},{
+                title:data.title,
+                amount:data.amount,
+                currency:data.currency
+            })
+            await updatedBudget.save()
+            return NextResponse.json({
+                message:"Budget Updated Sucessfully",
+                updated:true
+            })
+        }
+        catch(e){
+            return NextResponse.json({
+                Error:e
+            })
+        }
+
+    }
