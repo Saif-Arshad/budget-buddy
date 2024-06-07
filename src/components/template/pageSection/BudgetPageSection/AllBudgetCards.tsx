@@ -17,13 +17,14 @@ function AllBudgetCards() {
 
   const {budget} = useSelector((state: any) => state.budget);
   const {deletebudget} = useSelector((state: any) => state.deleteBudget);
-  console.log(deletebudget, budget);
+  const { newBudget} = useSelector((state: any) => state.updateBudget);
+  console.log(deletebudget, budget,newBudget);
   console.log(userEmail);
   useEffect(() => {
     if (userEmail) {
       dispatch(getBudget(userEmail));
     }
-  }, [userEmail, budget,deletebudget]);
+  }, [userEmail, budget,deletebudget,newBudget]);
   console.log("budget", all);
   return (
     <>

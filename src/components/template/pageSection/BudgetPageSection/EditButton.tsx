@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react";
+import React from "react";
 import {
   Dialog,
   DialogContent,
@@ -16,38 +16,35 @@ import { ThunkDispatch } from "@reduxjs/toolkit";
 import { Button } from "@/components/ui/button";
 import { useFormik } from "formik";
 import { useSelector, useDispatch } from "react-redux";
-import { createBudget } from "@/store/features/AddBudget.Slice";
-import useCurrentUser from "@/customHooks/useCurrentUser";
+import { updateBudget } from "@/store/features/UpdateBudget.Slice";
 import { FaRegEdit } from "react-icons/fa";
 
 function EditButton(props:any) {
-
     const {id} = props
+    console.log(id)
+    const { budget} = useSelector(
+      (state: any) => state.getBudget.allBudget
+    );
+    const cuurentUpdateBudget = budget.filter((item: any) => item._id === id);
+    console.log(cuurentUpdateBudget)
     const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
-    const { userEmail } = useCurrentUser();
-    const [selectedCurrency, setSelectedCurrency] = useState("");
-    const currencySymbols = useSelector((state: any) => state.currency.items);
-    const Budget = useSelector((state: any) => state.budget);
-    console.log(Budget);
+    // const Budget = useSelector((state: any) => state.budget);
+    // console.log(Budget);
     const submitHandler = (value: any, { resetForm }: any) => {
-      const allValues = { ...value, userEmail };
+      const allValues = {...value,id}
       console.log(allValues);
-      dispatch(createBudget(allValues));
+      dispatch(updateBudget(allValues ));
       resetForm();
     };
   
     const Formik = useFormik({
         initialValues: {
-          title: "",
-          amount: "",
-          currency: "",
+          title: cuurentUpdateBudget[0].title,
+          amount:  cuurentUpdateBudget[0].amount,
         },
         onSubmit: submitHandler,
       });
-      const handleSelectChange = (value: any) => {
-        setSelectedCurrency(value);
-        Formik.setFieldValue("currency", value);
-      };
+   
     
       console.log(Formik);
   return (
@@ -60,7 +57,7 @@ function EditButton(props:any) {
      </DialogTrigger>
      <DialogContent className="sm:max-w-[425px]">
        <DialogHeader>
-         <DialogTitle>Create Budget</DialogTitle>
+         <DialogTitle>Edit Budget</DialogTitle>
          <DialogDescription>
            Enter the title and amount for your new budget.
          </DialogDescription>
@@ -94,20 +91,6 @@ function EditButton(props:any) {
                className="text-sm py-2 outline-none border cursor-pointer border-slate-300 px-5 rounded-md"
              />
            </div>
-           <select
-             className="w-full p-2 cursor-pointer outline-none border border-slate-300 px-5 rounded-md"
-             onChange={(e) => handleSelectChange(e.target.value)}
-             value={selectedCurrency}
-           >
-             <option value="" disabled>
-               Select Currency
-             </option>
-             {currencySymbols.map((item: any, index: number) => (
-               <option value={item.currency_name} key={index}>
-                 {item.currency_symbol}
-               </option>
-             ))}
-           </select>
            {/* <svg className="h-2" viewBox="0 0 10 6">
  <polyline points="1 1 5 5 9 1"/>
 </svg> */}

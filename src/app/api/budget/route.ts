@@ -41,8 +41,8 @@ export async function PATCH(req:NextRequest){
             const updatedBudget = await Budget.findOneAndUpdate({_id:data.id},{
                 title:data.title,
                 amount:data.amount,
-                currency:data.currency
             })
+            console.log(updatedBudget)
             await updatedBudget.save()
             return NextResponse.json({
                 message:"Budget Updated Sucessfully",
