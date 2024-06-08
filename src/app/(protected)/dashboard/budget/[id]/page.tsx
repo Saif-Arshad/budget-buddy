@@ -1,3 +1,5 @@
+"use client"
+
 import AddExpense from '@/components/template/pageSection/DetailBudgetPageSection/AddExpense'
 import React from 'react'
 

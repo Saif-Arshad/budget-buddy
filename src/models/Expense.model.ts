@@ -7,11 +7,6 @@ const expenses = new mongoose.Schema(
             type:String,
             required:true
         },
-        slug:{
-            type:String,
-            required:true,
-            unique:true
-        },
         amount:{
             type:Number,
             required:true

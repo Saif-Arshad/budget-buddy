@@ -15,12 +15,14 @@ function BudgetCard(props:any) {
   const currencySymbol = currencySymbols.find((item: any) => item.currency_name === items.currency)?.currency_symbol || '';
 
   return (
-    // <Link href={`/dashboard/budget/${items._id}`}>
     <div className="w-72 h-44 rounded-lg py-2 px-4 bg-slate-50 flex flex-col  cursor-pointer transition-all  shadow-md">
     <div className="flex flex-row items-center justify-end pr-4 gap-x-4">
   
 <EditButton  id={items._id}/>
 <DeleteButton id={items._id} />  
+    <Link href={`/dashboard/budget/${items._id}`} >
+    click
+    </Link>
 
     </div>
 
@@ -37,7 +39,6 @@ function BudgetCard(props:any) {
 
 
     </div>
-    // </Link>
   )
 }
 

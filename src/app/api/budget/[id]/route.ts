@@ -13,7 +13,7 @@ export async function GET(req:NextRequest) {
         {
             owner: slug
         }
-    );
+    )
     return NextResponse.json({ budget });
     }
     catch(error){
