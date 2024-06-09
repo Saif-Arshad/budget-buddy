@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
-
+import  { Toaster } from 'react-hot-toast';
 import {
   ClerkProvider
 } from '@clerk/nextjs'
@@ -23,6 +23,9 @@ export default function RootLayout({
       <body >
         <ClerkProvider>
           <Providers>
+            <Toaster
+            position="top-right"
+            />
         {children}
         </Providers>
         </ClerkProvider>

@@ -15,11 +15,11 @@ import {
 import { ThunkDispatch } from "@reduxjs/toolkit";
 import { BudgetYep } from "@/validations/Budget.validation";
 import { Button } from "@/components/ui/button";
-import AddNewBudget from "./AddNewBudget";
 import { useFormik } from "formik";
 import { useSelector, useDispatch } from "react-redux";
 import { createBudget } from "@/store/features/AddBudget.Slice";
 import useCurrentUser from "@/customHooks/useCurrentUser";
+import CreateBudget from "../../buttons/CreateBudget";
 
 function DialogAddBudget() {
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
@@ -57,7 +57,7 @@ function DialogAddBudget() {
       <Dialog>
         <DialogTrigger asChild>
           <button>
-            <AddNewBudget />
+          <CreateBudget/>
           </button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">

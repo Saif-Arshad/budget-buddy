@@ -88,12 +88,12 @@
                 }
           
               </ul>
-                <div  className="w-full h-3 border-b-2 border-slate-200 mt-14  ">
+                <div  className="w-full h-3 border-b-2 border-slate-200 mt-10  ">
 
                 </div>
               <ul className="space-y-3 font-medium">
               <li>
-  <Link href="/dashboard/profile" className={`flex gap-1 mt-5 items-center p-2 text-gray-900 rounded-lg ${pathname === '/dashboard/profile' ? 'bg-gray-200' : 'even: hover:bg-gray-100'} group`}>
+  <Link href="/dashboard/profile" className={`flex gap-1 mt-10 items-center p-2 text-gray-900 rounded-lg ${pathname === '/dashboard/profile' ? 'bg-gray-200' : 'even: hover:bg-gray-100'} group`}>
     <span className={`w-5 h-6 text-gray-500 transition duration-75 ${pathname === '/dashboard/profile' ? 'text-gray-900' : 'group-hover:text-gray-900'}`}>
       <CiSettings size={25} />
     </span>
