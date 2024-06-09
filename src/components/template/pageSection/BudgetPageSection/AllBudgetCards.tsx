@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import useCurrentUser from "@/customHooks/useCurrentUser";
 import { getBudget } from "@/store/features/GetBudget.Slice";
 import { ThunkDispatch } from "@reduxjs/toolkit";
-import BudgetCard from "@/components/cards/BudgetCard";
+import BudgetCard from "@/components/template/pageSection/cards/BudgetCard";
 
 function AllBudgetCards() {
   const { userEmail } = useCurrentUser();

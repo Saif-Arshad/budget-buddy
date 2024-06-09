@@ -4,8 +4,7 @@ import "@/app/globals.css";
 import {
   ClerkProvider
 } from '@clerk/nextjs'
-import Footer from "@/components/shared/Footer";
-import Header from "@/components/shared/Header";
+
 import {Providers} from '@/store/ReduxProvider'
 
 
@@ -24,9 +23,7 @@ export default function RootLayout({
       <body >
         <ClerkProvider>
           <Providers>
-<Header/>
         {children}
-        <Footer/>
         </Providers>
         </ClerkProvider>
         

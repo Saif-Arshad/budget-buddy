@@ -1,6 +1,6 @@
 import { SignUp } from "@clerk/nextjs";
 import Image from "next/image";
-import {ASSETS} from '../../../../../public/Assets'
+import {ASSETS} from '../../../../public/Assets'
 export default function Page() {
   return (
   

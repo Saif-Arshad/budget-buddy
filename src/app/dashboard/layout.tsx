@@ -22,17 +22,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body >
-        <ClerkProvider>
-        <Providers>
 
     <AdminSideBar/>
     <div className="sm:ml-64">
       <DashboardNavBar/>
         {children}
 </div>
-</Providers>
-
-        </ClerkProvider>
         
         </body>
     </html>
