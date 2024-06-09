@@ -8,7 +8,7 @@
   import { usePathname } from 'next/navigation';
   import { FaHandHoldingDollar } from "react-icons/fa6";
   // import { BsCurrencyDollar } from "react-icons/bs";
-  import { CiSettings } from "react-icons/ci";
+  import { IoSettingsOutline } from "react-icons/io5";
   import { CgLogOut } from "react-icons/cg";
   import { useClerk } from '@clerk/nextjs';
   function AdminSideBar() {
@@ -95,7 +95,7 @@
               <li>
   <Link href="/dashboard/profile" className={`flex gap-1 mt-10 items-center p-2 text-gray-900 rounded-lg ${pathname === '/dashboard/profile' ? 'bg-gray-200' : 'even: hover:bg-gray-100'} group`}>
     <span className={`w-5 h-6 text-gray-500 transition duration-75 ${pathname === '/dashboard/profile' ? 'text-gray-900' : 'group-hover:text-gray-900'}`}>
-      <CiSettings size={25} />
+    <IoSettingsOutline size={25} />
     </span>
     <span className="ms-3">Profile Setting</span>
   </Link>

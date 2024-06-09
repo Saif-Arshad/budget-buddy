@@ -20,6 +20,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { createBudget } from "@/store/features/AddBudget.Slice";
 import useCurrentUser from "@/customHooks/useCurrentUser";
 import CreateBudget from "../../buttons/CreateBudget";
+import toast from "react-hot-toast";
 
 function DialogAddBudget() {
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
@@ -33,6 +34,7 @@ function DialogAddBudget() {
     console.log(allValues);
     dispatch(createBudget(allValues));
     resetForm();
+    toast.success("Budget Created SucessFully")
   };
 
   const Formik = useFormik({

@@ -10,14 +10,11 @@ function AllBudgetCards() {
   const { userEmail } = useCurrentUser();
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
   const { allBudget, isError, isLoading } = useSelector((state: any) => state.getBudget);
-
   const budget = useSelector((state: any) => state.budget);
   const deletebudget = useSelector((state: any) => state.deleteBudget);
   const newBudget = useSelector((state: any) => state.updateBudget);
-
   console.log(deletebudget, budget, newBudget);
   console.log(userEmail);
-
   useEffect(() => {
     if (userEmail) {
       dispatch(getBudget(userEmail));
@@ -26,7 +23,6 @@ function AllBudgetCards() {
 
   console.log("budget", allBudget);
 
-  // Ensure allBudget.budget is an array
   const budgetArray = Array.isArray(allBudget?.budget) ? allBudget.budget : [];
 
   return (

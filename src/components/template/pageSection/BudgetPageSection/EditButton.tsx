@@ -11,6 +11,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import toast from 'react-hot-toast';
 
 import { ThunkDispatch } from "@reduxjs/toolkit";
 import { Button } from "@/components/ui/button";
@@ -28,12 +29,12 @@ function EditButton(props:any) {
     const cuurentUpdateBudget = budget.filter((item: any) => item._id === id);
     console.log(cuurentUpdateBudget)
     const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
-    // const Budget = useSelector((state: any) => state.budget);
-    // console.log(Budget);
     const submitHandler = (value: any, { resetForm }: any) => {
       const allValues = {...value,id}
       console.log(allValues);
       dispatch(updateBudget(allValues ));
+      toast.success('Budget Updated SucessFully')
+
       resetForm();
     };
   
@@ -51,15 +52,15 @@ function EditButton(props:any) {
 
      <Dialog>
      <DialogTrigger asChild>
-     <button>
-   <FaRegEdit size={26} color='red' />
+     <button className="bg-blue-600 hover:bg-blue-500 transition-all text-white items-center gap-1 flex px-3 py-2 font-semibold rounded-lg">
+   <FaRegEdit size={17}  /> Edit
 </button>
      </DialogTrigger>
      <DialogContent className="sm:max-w-[425px]">
        <DialogHeader>
          <DialogTitle>Edit Budget</DialogTitle>
          <DialogDescription>
-           Enter the title and amount for your new budget.
+           Enter new title or amount to update your budget.
          </DialogDescription>
        </DialogHeader>
        <form onSubmit={Formik.handleSubmit}>
@@ -103,7 +104,7 @@ function EditButton(props:any) {
                  Formik.errors.amount || Formik.errors.title ? true : false
                }
              >
-               Create Budget
+               Edit Budget
              </Button>
            </DialogClose>
          </div>
