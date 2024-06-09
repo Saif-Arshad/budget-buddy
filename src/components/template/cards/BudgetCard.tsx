@@ -3,8 +3,8 @@
 import React from 'react'
 import Link from 'next/link'
 import { useSelector } from 'react-redux';
-import DeleteButton from '../BudgetPageSection/DeleteButton';
-import EditButton from '../BudgetPageSection/EditButton';
+import DeleteButton from '../pageSection/BudgetPageSection/DeleteButton';
+import EditButton from '../pageSection/BudgetPageSection/EditButton';
 
 function BudgetCard(props:any) {
 

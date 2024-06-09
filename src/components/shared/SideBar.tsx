@@ -7,7 +7,8 @@
   import { TbLayoutDashboard } from "react-icons/tb";
   import { usePathname } from 'next/navigation';
   import { FaHandHoldingDollar } from "react-icons/fa6";
-  import { BsCurrencyDollar } from "react-icons/bs";
+  // import { BsCurrencyDollar } from "react-icons/bs";
+  import { CiSettings } from "react-icons/ci";
   import { CgLogOut } from "react-icons/cg";
   import { useClerk } from '@clerk/nextjs';
   function AdminSideBar() {
@@ -25,12 +26,13 @@
           icon:<FaHandHoldingDollar size={25} />,
           link:"/dashboard/budget"
               },
-        {
-          title:"Expenses",
-          icon:<BsCurrencyDollar size={25} />,
-          link:"/dashboard/expense"
-              },
+        // {
+        //   title:"Expenses",
+        //   icon:<BsCurrencyDollar size={25} />,
+        //   link:"/dashboard/expense"
+        //       },
       ]
+
 
 
 
@@ -86,9 +88,20 @@
                 }
           
               </ul>
+                <div  className="w-full h-3 border-b-2 border-slate-200 mt-14  ">
 
-              <ul >
-              <li onClick={() => signOut({ redirectUrl: '/' })} className={` cursor-pointer mt-52 flex rounded-md gap-1 items-center p-2 text-gray-900 rounded-lgeven: hover:bg-red-500 hover:text-white   group`}>
+                </div>
+              <ul className="space-y-3 font-medium">
+              <li>
+  <Link href="/dashboard/profile" className={`flex gap-1 mt-5 items-center p-2 text-gray-900 rounded-lg ${pathname === '/dashboard/profile' ? 'bg-gray-200' : 'even: hover:bg-gray-100'} group`}>
+    <span className={`w-5 h-6 text-gray-500 transition duration-75 ${pathname === '/dashboard/profile' ? 'text-gray-900' : 'group-hover:text-gray-900'}`}>
+      <CiSettings size={25} />
+    </span>
+    <span className="ms-3">Profile Setting</span>
+  </Link>
+</li>
+
+              <li onClick={() => signOut({ redirectUrl: '/' })} className={` cursor-pointer flex rounded-md gap-1 items-center p-2 text-gray-900 rounded-lgeven: hover:bg-red-500 hover:text-white   group`}>
     <span className={`w-5 h-6 text-gray-500 transition duration-75  group-hover:text-white  `}>
     <CgLogOut size={25} />
     </span>
