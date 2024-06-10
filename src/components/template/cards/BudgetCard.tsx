@@ -4,7 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import { useSelector } from 'react-redux';
 import DeleteButton from '../pageSection/BudgetPageSection/DeleteButton';
-import { FaArrowRight } from "react-icons/fa6";
+import { IoIosArrowForward } from "react-icons/io";
 import EditButton from '../pageSection/BudgetPageSection/EditButton';
 
 function BudgetCard(props:any) {
@@ -16,7 +16,7 @@ function BudgetCard(props:any) {
   const currencySymbol = currencySymbols.find((item: any) => item.currency_name === items.currency)?.currency_symbol || '';
 
   return (
-    <div className="w-full md:w-5/12 xl:4/12 min-h-44 rounded-lg py-2 px-4 bg-slate-50 flex flex-col transition-all  shadow-sm">
+    <div className="w-full lg:w-5/12 xl:4/12 min-h-44 rounded-lg py-2 px-4 bg-slate-50 flex flex-col transition-all  shadow-sm">
     <div className="flex flex-row items-center justify-end space-x-4 my-3">
   
 <EditButton  id={items._id}/>
@@ -40,10 +40,8 @@ function BudgetCard(props:any) {
     </div>
 <div className="w-full flex justify-end my-3 mt-7">
       <Link href={`/dashboard/budget/${items._id}`} >
-     <button className="text-sm bg-gray-600 hover:bg-gray-500 transition-all text-white items-center gap-2 flex px-3 py-2 font-semibold rounded-lg">
-
-    Detail
-    <FaArrowRight size={14} />
+     <button className="  bg-slate-950 hover:bg-slate-800 transition-all text-white items-center flex px-3 py-2 font-semibold rounded-lg">
+    <IoIosArrowForward size={18} />
     </button>
     </Link>
     </div>

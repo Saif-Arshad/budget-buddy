@@ -21,7 +21,7 @@ function AllBudgetCards() {
     }
   }, [userEmail, budget, deletebudget, newBudget]);
 
-  console.log("budget", allBudget);
+  console.log("budget", allBudget,isError);
 
   const budgetArray = Array.isArray(allBudget?.budget) ? allBudget.budget : [];
 

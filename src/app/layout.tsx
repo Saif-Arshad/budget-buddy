@@ -24,7 +24,7 @@ export default function RootLayout({
         <ClerkProvider>
           <Providers>
             <Toaster
-            position="top-right"
+            position="top-left"
             />
         {children}
         </Providers>

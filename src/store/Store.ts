@@ -5,6 +5,7 @@ import getBudget from './features/GetBudget.Slice'
 import budgetSlice from './features/DeleteBudget.Slice'
 import updateSlice from './features/UpdateBudget.Slice'
 import createExpense from './features/AddExpense.Slice'
+import getExpense from './features/GetExpense.Slice'
 export const store = configureStore({
   reducer: {
     currency : symbols,
@@ -12,7 +13,7 @@ export const store = configureStore({
     getBudget:getBudget,
     deleteBudget:budgetSlice,
     updateBudget:updateSlice,
-    addExpense:createExpense
-
+    addExpense:createExpense,
+    FetchExpense:getExpense
   },
 })
