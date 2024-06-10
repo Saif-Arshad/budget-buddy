@@ -25,7 +25,12 @@ export async function DELETE(req: NextRequest) {
     console.log(slug, pathname);
     await connectDB();
     try {
-        const expense = await Expense.findByIdAndDelete(slug);
+        const expense = await Expense.findByIdAndDelete(
+            {
+                _id: slug	
+            }
+            );
+        console.log("🚀 ~ DELETE ~ expense:", expense)
         if (expense && expense.budget) {
             await Budget.updateOne(
                 { _id: expense.budget },

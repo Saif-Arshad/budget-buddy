@@ -11,14 +11,15 @@ function AllExpenses({ id }: any) {
   const [deleteItem,setDeleteItem]=useState<any>("")
   const {expense} = useSelector((state: any) => state.addExpense);
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
-  const deleteExpense=async ( )=>{
+  const deleteExpense=async (id:any)=>{
     try{
     const deleteRes = await fetch(`/api/expense/${id}`, {
         method: "DELETE",
     })
     const response = await deleteRes.json()
+    console.log("🚀 ~ deleteExpense ~ response:", response)
     setDeleteItem(response)
-    toast.success("Expesne Deleted SucessFully ")
+    toast.success("Expense Deleted SucessFully ")
 
     console.log("🚀 ~ deleteExpense ~ response:", deleteItem)
   }
@@ -84,7 +85,7 @@ function AllExpenses({ id }: any) {
                       <h2 className="text-xl font-semibold capitalize">{item.title}</h2>
                       <h2 className="text-lg font-semibold gap-1"> {item.amount}{currencySymbol[0]?  currencySymbol[0] : "$"}</h2>
                       <h3>{formatDate(item.createdAt)}</h3>
-                      <button onClick={deleteExpense} className="bg-red-600 hover:bg-red-500 transition-all text-white  items-center gap-1 flex px-3 py-2 font-semibold rounded-lg">
+                      <button onClick={()=>deleteExpense(item._id)} className="bg-red-600 hover:bg-red-500 transition-all text-white  items-center gap-1 flex px-3 py-2 font-semibold rounded-lg">
 
 <MdOutlineDelete size={17}  />
 </button>
