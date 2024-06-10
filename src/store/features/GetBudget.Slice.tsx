@@ -6,7 +6,7 @@ const initialState = {
     allBudget: null,
     isLoading: true,
     isError: false,
-    error:null
+    error:null,
 };
 
 
@@ -32,7 +32,9 @@ export const getBudget = createAsyncThunk("gettigBudget", async (currentUser:any
 const getBudgetSlice = createSlice({
     name: 'gettingBudget',
     initialState,
-    reducers: {},
+    reducers: {
+
+    },
     extraReducers: (builder) => {
         builder.addCase(getBudget.pending, (state) => {
             state.isLoading = true;

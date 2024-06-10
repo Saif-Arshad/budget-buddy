@@ -54,27 +54,39 @@ function AllExpenses({ id }: any) {
     ("error") :
   (
     <div className="w-full h-full gap-3 mt-8 flex-wrap flex items-center justify-center">
-      <div className="flex flex-col-reverse sm:flex-row flex-wrap justify-center sm:justify-between w-full text-xl gap-y-3 my-1 font-semibold">
-        <h1 className="capitalize flex flex-col">
-          <span className="text-3xl md:text-5xl font-bold">
-            {allExpense.expenses[0]?.budget.title}
-          </span>
-          <span className=" font-normal md:text-lg mt-3">
-            Total {allExpense.expenses?.length}{" "}
-            Expense
-          </span>
-          <span className=" font-normal md:text-lg mt-3 gap-x-1">
-            Budget : 
-            <span className="font-semibold ml-2">
-          {allExpense.expenses[0]?.budget.amount}
-          {currencySymbol[0]?  currencySymbol[0] : "$"}
-            </span>
-          </span>
+   {
+    allExpense.expenses.length>0 ?
+    <div className="flex flex-col-reverse sm:flex-row flex-wrap justify-center sm:justify-between w-full text-xl gap-y-3 my-1 font-semibold">
+    <h1 className="capitalize flex flex-col">
+      <span className="text-3xl md:text-5xl font-bold">
+        {allExpense.expenses[0]?.budget.title}
+      </span>
+      <span className=" font-normal md:text-lg mt-3">
+        Total {allExpense.expenses?.length}{" "}
+        Expense
+      </span>
+      <span className=" font-normal md:text-lg mt-3 gap-x-1">
+        Budget : 
+        <span className="font-semibold ml-2">
+      {allExpense.expenses[0]?.budget.amount}
+      {currencySymbol[0]?  currencySymbol[0] : "$"}
+        </span>
+      </span>
 
-        </h1>
-        <ExpenseButton id={id} />
-         
-      </div>
+    </h1>
+    <ExpenseButton id={id} />
+     
+  </div>
+  :
+  <>
+  <div className="w-full flex justify-end">
+
+  <ExpenseButton id={id} />
+  </div>
+   <h1 className="text-2xl font-semibold">No Expense Available Please Add </h1> 
+  </>
+   }
+     
 
 
             <div className="w-11/12 mt-14">
