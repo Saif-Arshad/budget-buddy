@@ -5,6 +5,7 @@ import useCurrentUser from "@/customHooks/useCurrentUser";
 import { getBudget } from "@/store/features/GetBudget.Slice";
 import { ThunkDispatch } from "@reduxjs/toolkit";
 import BudgetCard from "@/components/template/cards/BudgetCard";
+import BudgetSkeleton from "../../loadings/BudgetSkeleton";
 
 function AllBudgetCards() {
   const { userEmail } = useCurrentUser();
@@ -28,9 +29,12 @@ function AllBudgetCards() {
   return (
     <>
       {isLoading ? (
-        "Loading"
+       <BudgetSkeleton/>
       ) : isError ? (
-        "Error"
+         <div className=" flex items-center justify-center w-full min-h-[50vh]">
+          Oops! It seems there was an issue loading the content.
+        </div>
+      
       ) : (
         <>
           {budgetArray.length > 0 ? (

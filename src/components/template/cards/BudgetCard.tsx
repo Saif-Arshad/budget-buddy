@@ -50,10 +50,10 @@ function BudgetCard(props: any) {
       <div className="w-full my-3">
         <div className="w-full flex flex-wrap items-center justify-between text-sm my-3">
           <span>
-            Total Spend {totalExpense} {currencySymbol ? currencySymbol : "$"}
+            Total Spend {totalExpense}{currencySymbol ? currencySymbol : "$"}
           </span>
           <span>
-            Remaining Amount {remainingAmount}{" "}
+            Remaining Amount {remainingAmount}
             {currencySymbol ? currencySymbol : "$"}
           </span>
         </div>
@@ -73,7 +73,7 @@ function BudgetCard(props: any) {
 
       <div className="w-full flex justify-end my-3 mt-3">
         <Link href={`/dashboard/budget/${items._id}`}>
-          <button className="  bg-slate-950 hover:bg-slate-800 transition-all text-white items-center flex px-3 py-2 font-semibold rounded-lg">
+          <button className="  bg-slate-950 hover:bg-slate-700 transition-all text-white items-center flex px-3 py-2 font-semibold rounded-lg">
             <IoIosArrowForward size={18} />
           </button>
         </Link>

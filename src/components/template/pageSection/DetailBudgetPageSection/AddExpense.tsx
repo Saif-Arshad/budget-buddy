@@ -7,7 +7,7 @@ function AddExpense(props:any) {
     const {id} = props
 
     return (
-    <div className='w-full flex items-center  justify-center'>
+    <div className='w-full flex items-center pt-24 justify-center'>
     <div className='w-11/12'>
     <div className="w-full flex  justify-start my-3">
       <Link href={`/dashboard/budget`} >
