@@ -23,10 +23,9 @@ function SearchPage({ search }: any) {
         </div>
       ) : (
         <div className='w-full pt-32 flex items-center justify-center'>
-          <div className='w-11/12 items-center '>
-            hey {search}
+          <div className='w-11/12 items-center flex gap-5 flex-wrap'>
             {filteredBudget?.map((budget: any, index: number) => (
-              <BudgetCard key={index} budget={budget} />
+              <BudgetCard key={index} items={budget} />
             ))}
           </div>
         </div>

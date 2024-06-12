@@ -25,7 +25,7 @@ function DashboardNavBar() {
       </span>
     </nav>
 
-    <div className={` min-w-full md:hidden fixed sm:px-3  ${!searchClick ? "hidden" : "flex top-[57px] sm:top-[75px] " } items-center justify-center sm:justify-start`}>
+    <div className={` min-w-full md:hidden fixed sm:px-3  ${!searchClick ? "hidden" : "flex top-[57px] sm:top-[75px] z-50" } items-center justify-center sm:justify-start`}>
     <SearchInput/>
     </div>
 

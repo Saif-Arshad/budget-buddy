@@ -10,6 +10,7 @@ import EditButton from "../pageSection/BudgetPageSection/EditButton";
 function BudgetCard(props: any) {
   const currencySymbols = useSelector((state: any) => state.currency.items);
   const { items } = props;
+  console.log("🚀 ~ BudgetCard ~ items:", items)
   let totalExpense = 0;
 
   items.expense?.forEach((expense: any) => {
