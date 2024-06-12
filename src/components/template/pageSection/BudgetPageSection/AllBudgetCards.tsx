@@ -6,21 +6,25 @@ import { getBudget } from "@/store/features/GetBudget.Slice";
 import { ThunkDispatch } from "@reduxjs/toolkit";
 import BudgetCard from "@/components/template/cards/BudgetCard";
 import BudgetSkeleton from "../../loadings/BudgetSkeleton";
+import Image from "next/image";
+import { ASSETS } from "../../../../../public/Assets";
+
+
 
 function AllBudgetCards() {
-  const { userEmail } = useCurrentUser();
-  const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
+  // const { userEmail } = useCurrentUser();
+  // const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
   const { allBudget, isError, isLoading } = useSelector((state: any) => state.getBudget);
-  const budget = useSelector((state: any) => state.budget);
-  const deletebudget = useSelector((state: any) => state.deleteBudget);
-  const newBudget = useSelector((state: any) => state.updateBudget);
-  console.log(deletebudget, budget, newBudget);
-  console.log(userEmail);
-  useEffect(() => {
-    if (userEmail) {
-      dispatch(getBudget(userEmail));
-    }
-  }, [userEmail, budget, deletebudget, newBudget]);
+  // const budget = useSelector((state: any) => state.budget);
+  // const deletebudget = useSelector((state: any) => state.deleteBudget);
+  // const newBudget = useSelector((state: any) => state.updateBudget);
+  // console.log(deletebudget, budget, newBudget);
+  // console.log(userEmail);
+  // useEffect(() => {
+    // if (userEmail) {
+      // dispatch(getBudget(userEmail));
+    // }
+  // }, [userEmail, budget, deletebudget, newBudget]);
 
   console.log("budget", allBudget,isError);
 
@@ -45,7 +49,15 @@ function AllBudgetCards() {
                 <BudgetCard key={index} items={budget} />
               ))
           ) : (
-            <p>No budgets available.</p>
+            <div className="w-full flex flex-col gap-y-4 justify-center items-center">
+            <Image
+              src={ASSETS.budget_not_found}
+              alt="Not found"
+              height={100}
+              width={100}
+            />
+          <h3 className="text-lg sm:text-xl capitalize text-[#226f6f] font-semibold">No available budget item for show</h3>
+          </div>
           )}
         </>
       )}

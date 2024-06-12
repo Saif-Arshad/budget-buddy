@@ -20,6 +20,7 @@ import { useSelector, useDispatch } from "react-redux";
 import toast from "react-hot-toast";
 function ExpenseButton(props: any) {
   const { id, remaining } = props;
+  console.log("🚀 ~ ExpenseButton ~ remaining:", remaining)
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
   const addExpense = useSelector((state: any) => state.addExpense);
   console.log(addExpense);
