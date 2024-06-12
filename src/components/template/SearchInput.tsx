@@ -64,11 +64,11 @@ import Link from "next/link";
         </form>
         <div className={`${SearchLength>0 ? "block top-14" : "hidden"} bg-slate-50 transition-all rounded-md py-5 min-w-64 max-h-64 overflow-x-hidden overflow-y-auto absolute `}>
       {
-        filtereditems?.length==0 ? 
+        !filtereditems ||  filtereditems?.length==0 ? 
         <p className="text-center font-semibold">No Data Found</p> 
         :
          filtereditems?.map((item:any,index:number)=>(
-          <Link href={`/dashboard/budget/${item._id}`}  key={index} >
+          <Link href={`/dashboard/budget/${item._id}`}  key={index}   onClick={()=>setSearch('')}>
           <div className="group flex items-center justify-between px-5 py-2 hover:bg-slate-200 cursor-pointer flex-wrap">
           <p className="capitalize font-semibold">{item.title}</p>
           <p className="capitalize font-semibold">{item.amount}</p>
