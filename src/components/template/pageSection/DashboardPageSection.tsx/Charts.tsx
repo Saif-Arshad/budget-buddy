@@ -16,11 +16,14 @@ function Charts() {
                     <Spinner />
                 </div>
             ) : (
-                <div className='flex flex-col md:flex-row flex-wrap'>
-                    <h1>Hello World</h1>
+                <>
+
+                    <h1 className='text-2xl md:text-4xl font-bold my-7'>Analytics</h1>
+                <div className='flex flex-col md:flex-row flex-wrap my-9'>
                     <BarChart />
                     <DoudhnutChart/>
                 </div>
+            </>
             )}
         </>
     )

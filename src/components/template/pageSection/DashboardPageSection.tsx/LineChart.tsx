@@ -2,6 +2,11 @@
 import { useSelector } from "react-redux";
 import "chart.js/auto";
 import { Bar } from "react-chartjs-2";
+import { defaults } from "chart.js/auto";
+
+
+defaults.maintainAspectRatio=false;
+defaults.responsive=true;
 
 const BarChart = () => {
   const { allBudget } = useSelector((state: any) => state.getBudget);
@@ -34,7 +39,7 @@ const BarChart = () => {
         borderWidth: 1,
       },
       {
-        label: "Total Spend",
+        label: "Total Amount Spend",
         data: [totalSpent], 
         backgroundColor: "rgb(255, 99, 132)",
         borderColor: "rgba(188, 27, 51, 0.5)",
@@ -44,7 +49,7 @@ const BarChart = () => {
   };
 
   return (
-    <div className="w-full h-80 border border-slate-200">
+    <div className="w-full md:w-6/12 h-80 ">
       <Bar data={data} />
     </div>
   );

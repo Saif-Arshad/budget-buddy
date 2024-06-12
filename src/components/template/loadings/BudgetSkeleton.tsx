@@ -4,7 +4,7 @@ function BudgetSkeleton() {
   return (
     <div className="flex mt-12 gap-6 flex-wrap w-full items-center ">
 
-    <div className='w-full lg:w-5/12 xl:4/12 min-h-44 rounded-lg py-2 px-4  flex flex-col transition-all  shadow-sm'>
+    <div className='w-full lg:w-5/12 xl:4/12 min-h-44 bg-slate-50 rounded-lg py-2 px-4  flex flex-col transition-all  shadow-sm'>
       <div className="flex flex-row items-center justify-end space-x-4 my-3">
       <Skeleton className=" h-10 w-20" />
       <Skeleton className=" h-10 w-20" />
@@ -34,7 +34,7 @@ function BudgetSkeleton() {
 
     </div>
     </div>
-    <div className='w-full lg:w-5/12 xl:4/12 min-h-44 rounded-lg py-2 px-4  flex flex-col transition-all  shadow-sm'>
+    <div className='w-full lg:w-5/12 xl:4/12 min-h-44 rounded-lg bg-slate-50 py-2 px-4  flex flex-col transition-all  shadow-sm'>
       <div className="flex flex-row items-center justify-end space-x-4 my-3">
       <Skeleton className=" h-10 w-20" />
       <Skeleton className=" h-10 w-20" />

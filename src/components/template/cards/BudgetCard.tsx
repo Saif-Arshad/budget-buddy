@@ -12,7 +12,7 @@ function BudgetCard(props: any) {
   const { items } = props;
   let totalExpense = 0;
 
-  items.expense.forEach((expense: any) => {
+  items.expense?.forEach((expense: any) => {
     totalExpense += expense.amount;
   });
   const halfAmount = items.amount / 2;

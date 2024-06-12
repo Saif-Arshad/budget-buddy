@@ -1,7 +1,11 @@
 import { useSelector } from "react-redux";
 import "chart.js/auto";
 import { Doughnut } from "react-chartjs-2";
+import { defaults } from "chart.js/auto";
 
+
+defaults.maintainAspectRatio=false;
+defaults.responsive=true;
 const DoughnutChart = () => {
   const { allBudget } = useSelector((state: any) => state.getBudget);
     const labels = allBudget?.budget?.map((item: any) => item.title) || [];
@@ -26,7 +30,7 @@ const DoughnutChart = () => {
   };
 
   return (
-    <div className="w-full h-80 border border-slate-200">
+    <div className="w-full md:w-6/12 h-80 ">
       <Doughnut data={data} />
     </div>
   );

@@ -7,21 +7,31 @@ import Greeting from './Greeting';
 
 
 function WelcomeUser() {
-    const {userEmail,userName} = useCurrentUser()
-  // if()
+    const {userName} = useCurrentUser()
     return (
     <div>
-        <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold my-6 ">
-
-      <CurrentDate/>
-        </h1>
-      <h2 className='text-xl md:text-3xl font-semibold  '>
+      <h2 className='text-xl md:text-3xl font-bold capitalize '>
         {/* //@ts-ignore */}
-      {userName !== "No name found" ? userName+ " " : "Hi "}
-   <Greeting/>	
+
+    {userName&& userName!=="No name found" ?
+    <>
+       <Greeting/>	
+      { " "}
+    {userName}
+    </>
+    :
+    <>
+    Hi,
+       <Greeting/>	
+    
+    </>}
+
+
+
+
       </h2>
       <h5 className='text-sm md:text-lg '>
-      Lets Manage your Money
+      Take control of your finances with Budget Buddy - Let&rsquo;s manage your money together!
       </h5>
     </div>
   )
