@@ -6,7 +6,7 @@ import {
 } from '@clerk/nextjs'
 import DashboardNavBar from "@/components/shared/DashboardNavBar";
 import {Providers} from '@/store/ReduxProvider'
-
+import { Toaster } from "react-hot-toast";
 
 
 export const metadata: Metadata = {
@@ -22,7 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body >
-
+            <Toaster
+            position="top-left"
+            />
     <AdminSideBar/>
     <div className="sm:ml-64">
       <DashboardNavBar/>
