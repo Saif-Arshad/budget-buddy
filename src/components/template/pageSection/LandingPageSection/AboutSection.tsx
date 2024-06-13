@@ -48,20 +48,20 @@ function AboutSection() {
     </div>
     <h1 className="max-w-3xl mx-auto font-manrope font-bold text-2xl sm:text-4xl text-gray-900 mb-5 md:text-5xl ">
     Manage Your Money Wisely
+    <br />
+    with Budget Buddy
     </h1>
-    <h1 className="max-w-3xl mx-auto font-manrope font-bold text-2xl sm:text-4xl text-gray-900 mb-5 md:text-5xl ">
+    {/* <h1 className="max-w-3xl mx-auto font-manrope font-bold text-2xl sm:text-4xl text-gray-900 mb-5 md:text-5xl "> */}
 
-    with  
 
-<Highlight>
-     Budget Buddy
-</Highlight>
-    </h1>
-    <p className="max-w-xl mx-auto text-center text-base font-normal leading-7 text-gray-500 mb-3">
+{/* <Highlight> */}
+{/* </Highlight> */}
+    {/* </h1> */}
+    {/* <p className="max-w-xl mx-auto text-center text-base font-normal leading-7 text-gray-500 mb-3">
     Track your expenses in real-time and categorize them for better visibility. Avoid overspending by keeping a close eye on where your money goes and make smarter financial decisions.
 
 
-    </p>
+    </p> */}
     <Link href="/sign-up" className="w-full md:w-auto my-4 inline-flex items-center justify-center py-3 px-7 text-base font-semibold text-center text-white rounded-full bg-indigo-600 shadow-xs hover:bg-indigo-700 transition-all duration-500">
       Join Us
       <svg className="ml-2" width={20} height={20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

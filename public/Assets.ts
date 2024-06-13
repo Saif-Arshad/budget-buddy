@@ -1,8 +1,8 @@
 export const ASSETS = {
 icon:"/icon/icon.png",
 logo: "/icon/logo.png",
-signin:"/images/signup.svg",
-login:"/images/login.svg",
+signin:"/images/signup.jpg",
+login:"/images/login.jpg",
 not_found:"icon/404.svg",
 budget_not_found:"/images/nothing.png",
 hero_image:"/images/hero.svg",
