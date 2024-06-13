@@ -8,6 +8,7 @@ import BudgetCard from "@/components/template/cards/BudgetCard";
 import BudgetSkeleton from "../../loadings/BudgetSkeleton";
 import Image from "next/image";
 import { ASSETS } from "../../../../../public/Assets";
+import BudgetNotFound from "../../notFound/BudgetNotFound";
 
 
 
@@ -49,15 +50,7 @@ function AllBudgetCards() {
                 <BudgetCard key={index} items={budget} />
               ))
           ) : (
-            <div className="w-full flex flex-col gap-y-4 justify-center items-center">
-            <Image
-              src={ASSETS.budget_not_found}
-              alt="Not found"
-              height={100}
-              width={100}
-            />
-          <h3 className="text-lg sm:text-xl capitalize text-[#226f6f] font-semibold">No available budget item for show</h3>
-          </div>
+         <BudgetNotFound/>
           )}
         </>
       )}

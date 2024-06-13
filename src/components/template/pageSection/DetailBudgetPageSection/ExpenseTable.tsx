@@ -9,6 +9,7 @@ import Image from 'next/image';
 import { useSelector, useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
 import { deleteExpense } from '@/store/features/DeleteExpense.Slice';
+import ExpenseNotFound from '../../notFound/ExpenseNotFound';
 
 function ExpenseTable(props: any) {
     const { symbol, id } = props;
@@ -55,27 +56,21 @@ function ExpenseTable(props: any) {
         <>
      
             {allExpense.expenses?.length === 0 ? (
-                <div className="w-full flex flex-col gap-y-4 justify-center items-center">
-                    <Image src={ASSETS.budget_not_found} alt="Not found" height={100} width={100} />
-                    <h3 className="sm:text-lg text-[#226f6f] font-semibold">No Expense to show</h3>
-                    <h1 className="text-lg sm:text-2xl mb-3 font-semibold">
-                        OOPS! There Is No Expense Found In This Budget
-                    </h1>
-                </div>
+              <ExpenseNotFound/>
             )
         :
         <div className="w-11/12 mt-14">
         <div className="grid grid-cols-4 bg-[#F1F5F9] p-2">
             <p className="font-bold">Name</p>
-            <p className="font-bold">Amount</p>
-            <p className="font-bold">Date</p>
+            <p className="font-bold ">Amount</p>
+            <p className="font-bold hidden sm:block">Date</p>
             <p className="font-bold">Delete</p>
         </div>
         {allExpense.expenses?.slice().reverse().map((item: any, index: number) => (
             <div key={index} className="grid grid-cols-4 bg-white sm:p-2">
                 <p className="capitalize">{item.title}</p>
                 <p>{item.amount}{symbol ? symbol[0] : '$'}</p>
-                <p>{formatDate(item.createdAt)}</p>
+                <p className='hidden sm:block'>{formatDate(item.createdAt)}</p>
                 <p>
                     <button
                         onClick={() => deleteExpenses(item._id)}

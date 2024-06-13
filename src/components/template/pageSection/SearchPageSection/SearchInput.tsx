@@ -1,14 +1,16 @@
 "use client";
+import { Separator } from "@/components/ui/separator"
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import useCurrentUser from "@/customHooks/useCurrentUser";
+import { IoSearchOutline } from "react-icons/io5";
 import { getBudget } from "@/store/features/GetBudget.Slice";
 import { ThunkDispatch } from "@reduxjs/toolkit";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 function SearchInput() {
   const router = useRouter();
-  const [searchText,setSearchText]=useState("Search")
+  const [searchText, setSearchText] = useState("Search");
   const { userEmail } = useCurrentUser();
   const [data, setData] = useState<any>([]);
   console.log("🚀 ~ SearchInput ~ data:", data);
@@ -46,22 +48,20 @@ function SearchInput() {
   const searchHandler = (e: any) => {
     e.preventDefault();
     router.push(`/dashboard/search/${search}`);
-    setSearchText("Redirecting...")
-    setSearch("")
+    setSearchText("Redirecting...");
+    setSearch("");
 
     setTimeout(() => {
-      setSearchText("Search")
-
+      setSearchText("Search");
     }, 1500);
   };
-  const searchLink = ()=>{
-    setSearch("")
-    setSearchText("Redirecting...")
+  const searchLink = () => {
+    setSearch("");
+    setSearchText("Redirecting...");
     setTimeout(() => {
-      setSearchText("Search")
-
+      setSearchText("Search");
     }, 1500);
-  }
+  };
   return (
     <>
       <div className="relative">
@@ -98,8 +98,15 @@ function SearchInput() {
                 key={index}
                 onClick={searchLink}
               >
-                <div className="group flex items-center justify-between border-b border-slate-200 px-5 p-2 hover:bg-slate-100 cursor-pointer flex-wrap">
+                <div className=" px-5 p-2 hover:bg-slate-100  cursor-pointer ">
+              <div className="flex flex-col w-full ">
+                <span className=" flex items-center  gap-x-3 mb-2 ">
+                <IoSearchOutline size={18} />
                   <p className="capitalize font-semibold">{item.title}</p>
+                 </span>
+                  <Separator />
+
+              </div>
                 </div>
               </Link>
             ))
