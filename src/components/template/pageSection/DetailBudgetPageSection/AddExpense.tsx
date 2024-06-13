@@ -11,7 +11,7 @@ function AddExpense(props:any) {
     <div className='w-11/12'>
     <div className="w-full flex  justify-start my-3">
       <Link href={`/dashboard/budget`} >
-     <button className=" bg-slate-950 hover:bg-slate-800 transition-all text-white items-center gap-1 flex px-3 py-2 font-semibold rounded-lg">
+     <button className="bg-[#167c7c] hover:bg-[#0f5050] transition-all text-white items-center gap-1 flex px-3 py-2 font-semibold rounded-lg">
 
      <IoIosArrowBack size={17} />
     Go Back

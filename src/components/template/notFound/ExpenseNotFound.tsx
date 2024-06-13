@@ -11,7 +11,7 @@ function ExpenseNotFound() {
       />
     <h3 className="sm:text-lg text-[#226f6f] font-semibold">No Existing Expense Found </h3>
     <h1 className="text-lg sm:text-2xl mb-3 font-semibold">
-    Oh No! No Expense Transactions in This Budget
+    OOPS! No Expense Transactions in This Budget
     </h1>
 </div>
   )

@@ -8,6 +8,7 @@ import { getBudget } from "@/store/features/GetBudget.Slice";
 import { ThunkDispatch } from "@reduxjs/toolkit";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 function SearchInput() {
   const router = useRouter();
   const [searchText, setSearchText] = useState("Search");
@@ -47,6 +48,10 @@ function SearchInput() {
   console.log("🚀 ~ SearchInput ~ SearchLength:", SearchLength);
   const searchHandler = (e: any) => {
     e.preventDefault();
+    if(search==""){
+      toast.error("Enter Something to search")
+      return
+    }
     router.push(`/dashboard/search/${search}`);
     setSearchText("Redirecting...");
     setSearch("");
@@ -79,7 +84,7 @@ function SearchInput() {
           />
           <button
             type="submit"
-            className="flex flex-row items-center justify-center min-w-[130px] px-4 rounded-full border disabled:cursor-not-allowed disabled:opacity-50 transition ease-in-out duration-150 text-base bg-black text-white font-medium tracking-wide border-transparent py-1 h-[38px] -mr-3"
+            className="flex flex-row items-center justify-center min-w-[130px] px-4 rounded-full border disabled:cursor-not-allowed disabled:opacity-50 transition ease-in-out duration-150 text-base bg-[#167070] text-white font-medium tracking-wide border-transparent py-1 h-[38px] -mr-3"
           >
             {searchText}
           </button>

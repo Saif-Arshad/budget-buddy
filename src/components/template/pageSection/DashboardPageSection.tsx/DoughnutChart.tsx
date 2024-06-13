@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import "chart.js/auto";
-import { Doughnut } from "react-chartjs-2";
+import { Doughnut,Pie } from "react-chartjs-2";
 import { defaults } from "chart.js/auto";
 
 
@@ -31,7 +31,7 @@ const DoughnutChart = () => {
 
   return (
     <div className="w-full md:w-6/12 h-80 ">
-      <Doughnut data={data} />
+      <Pie data={data} />
     </div>
   );
 };

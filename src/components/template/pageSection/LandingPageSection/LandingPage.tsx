@@ -26,12 +26,12 @@ export function LandingPage() {
         }}
          className="text-3xl sm:text-5xl md:text-4xl lg:text-5xl text-black font-bold mt-11">
       Easier 
-        <span className=" mx-3 text-[#5D74F1]">
+        <span className=" mx-3 text-[#00ada8]">
       Solution
         </span>
         <br />
        to Manage Your 
-       <span className="text-[#5D74F1] mx-3">
+       <span className="text-[#00ada8] mx-3">
        Finance
         </span>
         </motion.h1>

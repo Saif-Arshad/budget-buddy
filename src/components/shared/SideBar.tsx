@@ -101,7 +101,7 @@
   </Link>
 </li>
 
-              <li onClick={() => signOut({ redirectUrl: '/' })} className={` cursor-pointer flex rounded-md gap-1 items-center p-2 text-gray-900 rounded-lgeven: hover:bg-red-500 hover:text-white   group`}>
+              <li onClick={() => signOut({ redirectUrl: '/' })} className={` cursor-pointer flex rounded-md gap-1 items-center p-2 text-gray-900 rounded-lgeven: hover:bg-[#00ada8] hover:text-white   group`}>
     <span className={`w-5 h-6 text-gray-500 transition duration-75  group-hover:text-white  `}>
     <CgLogOut size={25} />
     </span>

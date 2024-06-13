@@ -45,7 +45,7 @@ function IncomeStatics() {
             <div className="w-11/12 flex items-center flex-wrap gap-5 my-10">
                 {data.map((item:any, index:number) => (
                     <div className='bg-slate-50 h-36 w-72 rounded-md p-5' key={index}>
-                            <span className='flex items-center justify-center bg-black shadow-lg text-white rounded-full w-11 h-11'>
+                            <span className='flex items-center justify-center bg-[#0a2d2d] shadow-lg text-white rounded-full w-11 h-11'>
                                 {item.icon}
                             </span>
                         <h3 className='text-lg font-semibold text-gray-700 mt-1'>{item.name}</h3>

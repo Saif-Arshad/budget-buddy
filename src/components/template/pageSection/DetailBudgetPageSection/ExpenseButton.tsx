@@ -47,7 +47,7 @@ function ExpenseButton(props: any) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <button className="text-sm bg-slate-950 hover:bg-slate-800 transition-all text-white items-center h-11 gap-1 flex px-3 py-2 font-semibold rounded-lg">
+        <button className="text-sm bg-[#167c7c] hover:bg-[#0f5050] transition-all text-white items-center h-11 gap-1 flex px-3 py-2 font-semibold rounded-lg">
           <FaPlus size={17} />
           Add New Expense
         </button>

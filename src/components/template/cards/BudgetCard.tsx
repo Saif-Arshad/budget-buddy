@@ -66,7 +66,7 @@ function BudgetCard(props: any) {
             }
           }
             className={` ${
-              expenseGreaterThenHalfBudget ? "bg-red-500" : "bg-slate-950"
+              expenseGreaterThenHalfBudget ? "bg-red-500" : "bg-[#157878]"
             }  h-2 rounded-md`}
           ></div>
         </div>
@@ -74,7 +74,7 @@ function BudgetCard(props: any) {
 
       <div className="w-full flex justify-end my-3 mt-3">
         <Link href={`/dashboard/budget/${items._id}`}>
-          <button className="  bg-slate-950 hover:bg-slate-700 transition-all text-white items-center flex px-3 py-2 font-semibold rounded-lg">
+          <button className="  bg-[#1c6f6f] hover:bg-[#187575] transition-all text-white items-center flex px-3 py-2 font-semibold rounded-lg">
             <IoIosArrowForward size={18} />
           </button>
         </Link>
