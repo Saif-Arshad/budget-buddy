@@ -4,7 +4,9 @@ logo: "/icon/logo.png",
 signin:"/images/signup.svg",
 login:"/images/login.svg",
 not_found:"icon/404.svg",
-budget_not_found:"/images/nothing.png"
+budget_not_found:"/images/nothing.png",
+hero_image:"/images/hero.svg",
+expense_image:"/images/expense_report.svg"
 
 
 }
