@@ -27,7 +27,10 @@ function BudgetCard(props: any) {
   if(percentageSpent>100){
    percentageSpent=100
   }
-    
+  function formatCurrency(amount:any) {
+    var formattedAmount = amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return formattedAmount ;
+}
   console.log("🚀 ~ BudgetCard ~ percentageSpent:", percentageSpent)
   return (
     <div className="w-full lg:w-5/12 xl:4/12 min-h-44 rounded-lg py-2 px-4 bg-slate-50 flex flex-col transition-all  shadow-sm">
@@ -44,17 +47,17 @@ function BudgetCard(props: any) {
           </span>
         </h1>
         <h1 className="gap-x-1">
-          {items.amount}
+        {formatCurrency(items.amount)}
           {currencySymbol ? currencySymbol : "$"}
         </h1>
       </div>
       <div className="w-full my-3">
         <div className="w-full flex flex-wrap items-center justify-between text-sm my-3">
           <span>
-            Total Spend {totalExpense}{currencySymbol ? currencySymbol : "$"}
+            Total Spend {formatCurrency(totalExpense)}{currencySymbol ? currencySymbol : "$"}
           </span>
           <span>
-            Remaining Amount {remainingAmount}
+            Remaining Amount {formatCurrency(remainingAmount)}
             {currencySymbol ? currencySymbol : "$"}
           </span>
         </div>

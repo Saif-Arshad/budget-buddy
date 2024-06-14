@@ -15,24 +15,28 @@ function IncomeStatics() {
         return acc + budgetSpent;
     }, 0);
     const remainingAmount = totalBudget - totalSpent;
+    function formatCurrency(amount:any) {
+        var formattedAmount = amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return formattedAmount ;
+    }
     const data = [
         {
             id: 1,
             name: "Total Budget Amount",
-            amount: totalBudget,
+            amount:formatCurrency(totalBudget),
             icon:<GrMoney size={22}/>,
         },
         {
             id: 2,
             name: "Total Spent Amount",
-            amount: totalSpent,
+            amount: formatCurrency( totalSpent),
             icon:<GiTakeMyMoney size={22}/>,
 
         },
         {
             id: 3,
             name: "Remaining Amount",
-            amount: remainingAmount,
+            amount:formatCurrency(remainingAmount),
             icon:<GiReceiveMoney size={22}/>,
 
         }

@@ -11,6 +11,7 @@
   import { IoSettingsOutline } from "react-icons/io5";
   import { CgLogOut } from "react-icons/cg";
   import { useClerk } from '@clerk/nextjs';
+  import { FaRegFilePdf } from "react-icons/fa6";
   function AdminSideBar() {
     
     const pathname = usePathname();
@@ -26,11 +27,17 @@
           icon:<FaHandHoldingDollar size={25} />,
           link:"/dashboard/budget"
               },
-        // {
-        //   title:"Expenses",
-        //   icon:<BsCurrencyDollar size={25} />,
-        //   link:"/dashboard/expense"
-        //       },
+              {
+                title:"Generate Report",
+                icon: <FaRegFilePdf size={25} />,
+                link:"/dashboard/report"
+                    },
+        {
+          title:"Profile Setting",
+          icon: <IoSettingsOutline size={25} />,
+          link:"/dashboard/profile"
+              },
+       
       ]
 
 
@@ -88,18 +95,18 @@
                 }
           
               </ul>
-                <div  className="w-full h-3 border-b-2 border-slate-200 mt-10  ">
+                <div  className="w-full h-3 border-b-2 border-slate-200 my-7  ">
 
                 </div>
-              <ul className="space-y-3 font-medium">
-              <li>
-  <Link href="/dashboard/profile" className={`flex gap-1 mt-10 items-center p-2 text-gray-900 rounded-lg ${pathname === '/dashboard/profile' ? 'bg-gray-200' : 'even: hover:bg-gray-100'} group`}>
-    <span className={`w-5 h-6 text-gray-500 transition duration-75 ${pathname === '/dashboard/profile' ? 'text-gray-900' : 'group-hover:text-gray-900'}`}>
-    <IoSettingsOutline size={25} />
+              <ul className="font-medium">
+              {/* <li>
+  <Link href="/dashboard/profile" className={` cursor-pointer flex rounded-md gap-1 items-center p-2 text-gray-900 rounded-lgeven: hover:bg-[#00ada8] hover:text-white   group`}>
+  <span className={`w-5 h-6 text-gray-500 transition duration-75  group-hover:text-white  `}>
+    <FaRegFilePdf size={25} />
     </span>
-    <span className="ms-3">Profile Setting</span>
+    <span className="ms-3">Generate Report</span>
   </Link>
-</li>
+</li> */}
 
               <li onClick={() => signOut({ redirectUrl: '/' })} className={` cursor-pointer flex rounded-md gap-1 items-center p-2 text-gray-900 rounded-lgeven: hover:bg-[#00ada8] hover:text-white   group`}>
     <span className={`w-5 h-6 text-gray-500 transition duration-75  group-hover:text-white  `}>

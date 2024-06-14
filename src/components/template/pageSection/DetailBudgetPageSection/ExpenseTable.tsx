@@ -33,7 +33,10 @@ function ExpenseTable(props: any) {
         const year = date.getUTCFullYear();
         return `${day}/${month}/${year}`;
     };
-
+    function formatCurrency(amount:any) {
+        var formattedAmount = amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return formattedAmount ;
+    }
 
 
     if (isError) {
@@ -69,7 +72,7 @@ function ExpenseTable(props: any) {
         {allExpense.expenses?.slice().reverse().map((item: any, index: number) => (
             <div key={index} className="grid grid-cols-4 bg-white sm:p-2">
                 <p className="capitalize">{item.title}</p>
-                <p>{item.amount}{symbol ? symbol[0] : '$'}</p>
+                <p>{formatCurrency(item.amount)}{symbol ? symbol[0] : '$'}</p>
                 <p className='hidden sm:block'>{formatDate(item.createdAt)}</p>
                 <p>
                     <button

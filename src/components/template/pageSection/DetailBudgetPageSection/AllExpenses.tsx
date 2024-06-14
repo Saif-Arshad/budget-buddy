@@ -35,9 +35,13 @@ function AllExpenses({ id }: any) {
   })
   const symbol =
   currencySymbols.find((item: any) => item.currency_name === currentBudget&& currentBudget[0]?.currency)
-    ?.currency_symbol || "";
-    const remainingAmount = currentBudget&&  currentBudget[0]?.amount - totalExpense;
-   
+  ?.currency_symbol || "";
+  const remainingAmount = currentBudget&&  currentBudget[0]?.amount - totalExpense;
+  console.log("🚀 ~ AllExpenses ~ symbol:", symbol)
+  function formatCurrency(amount:any) {
+    var formattedAmount = amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return formattedAmount ;
+}
   return (
     isLoading ? (
       <div className="flex items-center justify-center w-full min-h-[50vh]">
@@ -68,7 +72,7 @@ function AllExpenses({ id }: any) {
    <span className=" font-normal md:text-lg mt-3 gap-x-1">
     Budget : 
      <span className="font-semibold ml-2">
-   {currentBudget[0]?.amount}
+   {formatCurrency(currentBudget[0]?.amount)}
    {symbol[0]? symbol[0]  : "$"}
 
      </span>
@@ -76,7 +80,7 @@ function AllExpenses({ id }: any) {
    <span className=" font-normal md:text-lg mt-3 gap-x-1">
      Total Spend : 
      <span className="font-semibold ml-2">
-   {totalExpense}
+   {formatCurrency(totalExpense)}
    {symbol[0]? symbol[0]  : "$"}
 
      </span>
@@ -84,7 +88,7 @@ function AllExpenses({ id }: any) {
    <span className=" font-normal md:text-lg mt-3 gap-x-1">
      Remaining Amount : 
      <span className="font-semibold ml-2">
-   {remainingAmount}
+   {formatCurrency(remainingAmount)}
    {symbol[0]? symbol[0]  : "$"}
      </span>
    </span>

@@ -8,6 +8,10 @@
      "currency_symbol": "c$" 
     },
     {
+         "currency_name": "Pakistani Rupees",
+     "currency_symbol": "PKR" 
+    },
+    {
          "currency_name": "British Pound",
      "currency_symbol": "£" 
     },
