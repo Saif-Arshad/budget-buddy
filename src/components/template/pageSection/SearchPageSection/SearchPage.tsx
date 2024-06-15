@@ -3,7 +3,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import BudgetCard from '../../cards/BudgetCard';
-import Spinner from '@/components/template/loadings/Spinner'; // Adjust the import path as needed
+import Spinner from '@/components/template/loadings/Spinner'; 
 import { ASSETS } from '../../../../../public/Assets';
 import Image from 'next/image';
 import BudgetNotFound from '../../notFound/BudgetNotFound';
@@ -20,12 +20,15 @@ function SearchPage({ search }: any) {
   return (
     <>
       {isLoading ? (
-        <div className="flex items-center justify-center w-full min-h-[50vh]">
+        <div className="flex items-center pt-32  justify-center w-full min-h-[50vh]">
           <Spinner />
         </div>
       ) : 
       filteredBudget.length==0 ? (
-       <BudgetNotFound/>
+        <div className="flex items-center pt-32  justify-center w-full min-h-[50vh]">
+           <BudgetNotFound/>
+        </div>
+      
       )
       :
       (
