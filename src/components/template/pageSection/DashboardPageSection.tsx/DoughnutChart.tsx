@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import "chart.js/auto";
-import { Doughnut,Pie } from "react-chartjs-2";
+import { Pie } from "react-chartjs-2";
 import { defaults } from "chart.js/auto";
 
 
