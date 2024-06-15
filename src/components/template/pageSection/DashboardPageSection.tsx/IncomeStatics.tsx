@@ -22,7 +22,7 @@ function IncomeStatics() {
     const data = [
         {
             id: 1,
-            name: "Total Budget Amount",
+            name: "Total Amount",
             amount:formatCurrency(totalBudget),
             icon:<GrMoney size={22}/>,
         },

@@ -63,14 +63,14 @@ function ExpenseTable(props: any) {
             )
         :
         <div className="w-11/12 mt-14">
-        <div className="grid grid-cols-4 bg-[#F1F5F9] p-2">
+        <div className="grid grid-cols-3 sm:grid-cols-4 bg-[#F1F5F9] p-2">
             <p className="font-bold">Name</p>
             <p className="font-bold ">Amount</p>
             <p className="font-bold hidden sm:block">Date</p>
             <p className="font-bold">Delete</p>
         </div>
         {allExpense.expenses?.slice().reverse().map((item: any, index: number) => (
-            <div key={index} className="grid grid-cols-4 bg-white sm:p-2">
+            <div key={index} className="grid grid-cols-3 sm:grid-cols-4 bg-white sm:p-2">
                 <p className="capitalize">{item.title}</p>
                 <p>{formatCurrency(item.amount)}{symbol ? symbol[0] : '$'}</p>
                 <p className='hidden sm:block'>{formatDate(item.createdAt)}</p>

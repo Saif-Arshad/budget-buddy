@@ -4,8 +4,8 @@ import Image from "next/image";
 export function Report() {
   return (
  <>
-  <div className="w-full min-h-[30rem] mb-8  flex flex-col py-20 sm:py-32 md:py-0 md:flex-row ">
-    <div className="w-full md:w-6/12 flex flex-col-reverse  items-center justify-center">
+  <div className="w-full min-h-[30rem] mb-8  flex flex-col-reverse py-10 sm:py-22 md:py-0 md:flex-row ">
+    <div className="w-full md:w-6/12 flex flex-col  items-center justify-center">
       <Image
         src={ASSETS.expense_image}
         height={500}

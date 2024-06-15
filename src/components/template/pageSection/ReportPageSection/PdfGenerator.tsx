@@ -1,53 +1,27 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { jsPDF } from "jspdf";
 import "jspdf-autotable";
-import { ASSETS } from "../../../../../public/Assets";
-
+import useCurrentUser from "@/customHooks/useCurrentUser";
 const PdfGenerator = () => {
-  const [pdfInstance, setPdfInstance] = useState<jsPDF | null>(null);
-
-  useEffect(() => {
-    import("jspdf").then((module) => {
-      setPdfInstance(new module.jsPDF());
-    });
-  }, []);
-
-  const generatePDF = () => {
-    if (pdfInstance) {
-      const doc = pdfInstance;
-
-      const logo = new Image();
-      logo.src = ASSETS.logo;
-      logo.onload = function () {
-        doc.addImage(logo, "PNG", 10, 10, 50, 20);
-
-        // Add some text below the logo
-        doc.text("My Website", 70, 25);
-
-        // Add a table
-        const tableColumn = ["ID", "Name", "Country"];
-        const tableRows = [
-          [1, "John Doe", "USA"],
-          [2, "Anna Smith", "UK"],
-          [3, "Peter Johnson", "Canada"],
-        ];
-
-        (doc as any).autoTable({
-          head: [tableColumn],
-          body: tableRows,
-          startY: 40, // Adjust startY to position the table below the text
-        });
-
-        doc.save("example.pdf");
-      };
+  const { userEmail } = useCurrentUser();
+  const date = new Date();
+  const month = date.toLocaleString('default', { month: 'long' });
+  const handleClick = async () => {
+    const response = await fetch(`/api/generate-report/${userEmail}`);
+    if (response.ok) {
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `BudgetBuddy-${month}Report.pdf`;
+      a.click();
+    } else {
+      console.error('Failed to generate PDF:', await response.json());
     }
   };
-
   return (
-    <div>
-      <button onClick={generatePDF}>Generate PDF</button>
+    <div className="w-full mb-9 sm:my-0 flex justify-end">
+      <button onClick={handleClick} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Generate PDF</button>
     </div>
   );
 };

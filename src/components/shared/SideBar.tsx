@@ -28,7 +28,7 @@
           link:"/dashboard/budget"
               },
               {
-                title:"Generate Report",
+                title:"Report",
                 icon: <FaRegFilePdf size={25} />,
                 link:"/dashboard/report"
                     },
