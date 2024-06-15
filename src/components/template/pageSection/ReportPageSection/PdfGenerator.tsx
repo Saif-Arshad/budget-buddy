@@ -73,9 +73,9 @@ const PdfGenerator = () => {
         }
         else{
           doc.setFont("helvetica", "light");
-        doc.text(`Total : ${formatCurrency(totalBudget)}`, 10, 55);
-        doc.text(`Spend : ${formatCurrency(totalSpent)}`, 10, 65);
-        doc.text(`Remaining : ${formatCurrency(remainingAmount)}`, 10, 75);
+        doc.text(`Total Amount:Rs. ${formatCurrency(totalBudget)}`, 10, 55);
+        doc.text(`Total Expenses : Rs. ${formatCurrency(totalSpent)}`, 10, 65);
+        doc.text(`Remaining Amount : Rs. ${formatCurrency(remainingAmount)}`, 10, 75);
         }
 
         let yOffset = 95;
@@ -87,7 +87,7 @@ const PdfGenerator = () => {
           }
           doc.setFont("helvetica", "light");
           doc.text(`Budget title: ${item.title}`, 70, yOffset);
-          doc.text(`Budget Amount: ${formatCurrency(item.amount)}`, 70, yOffset + 10);
+          doc.text(`Budget Amount: Rs. ${formatCurrency(item.amount)}`, 70, yOffset + 10);
 
           if (item.expense.length === 0) {
             doc.text("There are no expenses in this budget.", 10, yOffset + 30);

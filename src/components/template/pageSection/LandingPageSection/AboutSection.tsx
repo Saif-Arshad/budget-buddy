@@ -1,7 +1,9 @@
 import Link from 'next/link'
 import React from 'react'
 import { cn } from "@/utils/cn"
+import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { ASSETS } from '../../../../../public/Assets';
 export const Highlight = ({
     children,
     className,
@@ -40,6 +42,9 @@ export const Highlight = ({
 function AboutSection() {
   return (
     <div className='w-full flex items-center justify-center'>
+
+
+
       <div className='w-11/12 '>
   <div className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8 relative text-center">
     <div className=" p-1 w-80 mx-auto rounded-full flex items-center justify-between mb-4">
@@ -52,7 +57,12 @@ function AboutSection() {
     with Budget Buddy
     </h1>
     {/* <h1 className="max-w-3xl mx-auto font-manrope font-bold text-2xl sm:text-4xl text-gray-900 mb-5 md:text-5xl "> */}
-
+    {/* <Image
+  src={ASSETS.chart}
+  width={800}
+  height={800}
+  alt='Breif overview'
+/> */}
 
 {/* <Highlight> */}
 {/* </Highlight> */}

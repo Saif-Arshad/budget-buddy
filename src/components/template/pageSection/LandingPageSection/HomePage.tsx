@@ -6,6 +6,7 @@ import AboutSection from './AboutSection'
 import { Report } from './ReportSection'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { PdfSection } from './PdfSection'
 
 function HomePage() {
   useEffect(() => {
@@ -18,6 +19,7 @@ function HomePage() {
     <>
     <LandingPage/>
    <Report/>
+   <PdfSection/>
    <AboutSection/>
     </>
   )
