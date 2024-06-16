@@ -15,18 +15,13 @@ function AllExpenses({ id }: any) {
   const currencySymbols = useSelector((state: any) => state.currency.items);
   const {allExpense,isLoading,isError} = useSelector((state: any) => state.FetchExpense);
   const { expense } = useSelector((state: any) => state.addExpense);
-  console.log("🚀 ~ AllExpenses ~ expense:", expense)
   const { deleteExpense} = useSelector((state: any) => state.deleteExpense);
   useEffect(() => {
     dispatch(getExpense(id));
 }, [expense, deleteExpense,id]);
 
-  console.log("🚀 ~ AllExpenses ~ isError:", isError)
-  console.log("🚀 ~ AllExpenses ~ allExpense:", allExpense)
   const { allBudget} = useSelector((state: any) => state.getBudget);
-  console.log("🚀 ~ AllExpenses ~ allBudget:", allBudget);
   const currentBudget = allBudget?.budget?.filter((item: any) => item._id === id); 
-  console.log("🚀 ~ AllExpenses ~ currentBudget[0]:", currentBudget);
   // const loadnig =  allExpense?.expenses && isLoading
   let totalExpense = 0;
 
@@ -37,7 +32,6 @@ function AllExpenses({ id }: any) {
   currencySymbols.find((item: any) => item.currency_name === currentBudget&& currentBudget[0]?.currency)
   ?.currency_symbol || "";
   const remainingAmount = currentBudget&&  currentBudget[0]?.amount - totalExpense;
-  console.log("🚀 ~ AllExpenses ~ symbol:", symbol)
   function formatCurrency(amount:any) {
     var formattedAmount = amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return formattedAmount ;

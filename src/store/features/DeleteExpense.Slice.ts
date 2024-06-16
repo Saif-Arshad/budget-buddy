@@ -12,7 +12,6 @@ const initialState = {
 
 export const deleteExpense = createAsyncThunk("deletingExpennse", async (formData:any, { rejectWithValue }) => {
     try {
-        console.log(formData)
             
         const response = await fetch(`/api/expense/${formData}`, {
             method: 'DELETE',
@@ -24,7 +23,6 @@ export const deleteExpense = createAsyncThunk("deletingExpennse", async (formDat
        
 
         const data = await response.json();
-        console.log(data)
         return data;
     } catch (error:any) {
         return rejectWithValue(error.message);

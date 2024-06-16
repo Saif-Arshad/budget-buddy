@@ -10,7 +10,6 @@ import EditButton from "../pageSection/BudgetPageSection/EditButton";
 function BudgetCard(props: any) {
   const currencySymbols = useSelector((state: any) => state.currency.items);
   const { items } = props;
-  console.log("🚀 ~ BudgetCard ~ items:", items)
   let totalExpense = 0;
 
   items.expense?.forEach((expense: any) => {
@@ -19,7 +18,6 @@ function BudgetCard(props: any) {
   const halfAmount = items.amount / 2;
   const remainingAmount = items.amount - totalExpense;
   const expenseGreaterThenHalfBudget = totalExpense > halfAmount;
-  console.log(props);
   const currencySymbol =
     currencySymbols.find((item: any) => item.currency_name === items.currency)
       ?.currency_symbol || "";
@@ -31,7 +29,6 @@ function BudgetCard(props: any) {
     var formattedAmount = amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return formattedAmount ;
 }
-  console.log("🚀 ~ BudgetCard ~ percentageSpent:", percentageSpent)
   return (
     <div className="w-full lg:w-5/12 xl:4/12 min-h-44 rounded-lg py-2 px-4 bg-slate-50 flex flex-col transition-all  shadow-sm">
       <div className="flex flex-row items-center justify-end space-x-4 my-3">

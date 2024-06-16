@@ -11,7 +11,6 @@ const initialState = {
 
 
 export const getExpense = createAsyncThunk("gettigExpense", async (currentBudget:any,{ rejectWithValue }:any) => {
-        console.log("🚀 ~ getExpense ~ currentBudget:", currentBudget)
     try {
         const response = await fetch(`/api/expense/${currentBudget}`, {
             method: 'GET',
@@ -20,7 +19,6 @@ export const getExpense = createAsyncThunk("gettigExpense", async (currentBudget
             },
         });
         const data = await response.json();
-        console.log(data)
         return data;
 
       

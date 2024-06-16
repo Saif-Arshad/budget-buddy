@@ -14,7 +14,6 @@ const initialState = {
 
 export const createExpense = createAsyncThunk("Expense", async (formData:any, { rejectWithValue }) => {
     try {
-        console.log(formData)
             
         const response = await fetch("/api/expense", {
             method: 'POST',
@@ -27,7 +26,6 @@ export const createExpense = createAsyncThunk("Expense", async (formData:any, { 
        
 
         const data = await response.json();
-        console.log(data)
         return data;
     } catch (error:any) {
         return rejectWithValue(error.message);

@@ -8,7 +8,6 @@ import Budget from "@/models/Budget.model";
 
 export async function POST(request: NextRequest) {
     const data = await request.json();
-    console.log(data);
     await connectDB();
     try {
         const expense = new Expense({

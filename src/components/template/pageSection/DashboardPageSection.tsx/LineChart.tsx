@@ -10,7 +10,6 @@ defaults.responsive=true;
 
 const BarChart = () => {
   const { allBudget } = useSelector((state: any) => state.getBudget);
-  console.log("🚀 ~ IncomeStatics ~ allBudget:", allBudget);
 
   const budgets = allBudget?.budget || [];
 

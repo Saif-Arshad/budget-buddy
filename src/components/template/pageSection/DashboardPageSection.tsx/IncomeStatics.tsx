@@ -7,7 +7,6 @@ import StaticsSkeleton from '../../loadings/StaticsSkeleton';
 
 function IncomeStatics() {
     const { allBudget, isLoading } = useSelector((state: any) => state.getBudget);
-    console.log("🚀 ~ IncomeStatics ~ allBudget:", allBudget);
     const budgets = allBudget?.budget || [];
     const totalBudget = budgets.reduce((acc: number, budget: any) => acc + budget.amount, 0);
     const totalSpent = budgets.reduce((acc: number, budget: any) => {

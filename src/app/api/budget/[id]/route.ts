@@ -6,7 +6,6 @@ import Expense from "@/models/Expense.model";
 export async function GET(req: NextRequest) {
     const { pathname } = new URL(req.url);
     const slug = pathname.split('/').pop();
-    console.log(slug, pathname);
     await connectDB();
     try {
         const budget = await Budget.find({ owner: slug }).populate('expense');
@@ -22,11 +21,9 @@ export async function GET(req: NextRequest) {
 export async function DELETE(request: NextRequest) {
     const { pathname } = new URL(request.url);
     const slug = pathname.split('/').pop();
-    console.log(slug, pathname);
     await connectDB();
 
     try {
-        console.log("delete");
         const deleteItem = await Budget.findByIdAndDelete(slug);
         if (deleteItem) {
             await Expense.deleteMany({ _id: { $in: deleteItem.expense } });

@@ -18,9 +18,7 @@ import toast from 'react-hot-toast';
 function DeleteButton(props:any) {
     const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
     const deleting = useSelector((item:any)=>item.deleteBudget)
-    console.log(deleting)
     const {id} = props
-    console.log(id)
     const deleteHandler = ()=>{
         dispatch(deleteBudget(id))
         toast.success('Budget Deleted SucessFully')

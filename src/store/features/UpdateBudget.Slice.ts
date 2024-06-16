@@ -12,7 +12,6 @@ const initialState = {
 
 export const updateBudget = createAsyncThunk("update", async (formData:any, { rejectWithValue }) => {
     try {
-        console.log(formData)
             
         const response = await fetch("/api/budget", {
             method: 'PATCH',
@@ -25,7 +24,6 @@ export const updateBudget = createAsyncThunk("update", async (formData:any, { re
        
 
         const data = await response.json();
-        console.log(data)
         return data;
     } catch (error:any) {
         return rejectWithValue(error.message);

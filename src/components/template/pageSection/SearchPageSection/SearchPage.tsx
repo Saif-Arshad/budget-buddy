@@ -9,13 +9,11 @@ import Image from 'next/image';
 import BudgetNotFound from '../../notFound/BudgetNotFound';
 function SearchPage({ search }: any) {
   const { allBudget, isLoading } = useSelector((state: any) => state.getBudget);
-  console.log("🚀 ~ page ~ allBudget:", allBudget);
   
   const filteredBudget = allBudget?.budget?.filter((budget: any) => 
     budget.title.toLowerCase().includes(search.toLowerCase())
   );
   
-  console.log("🚀 ~ SearchPage ~ filteredBudget:", filteredBudget);
 
   return (
     <>

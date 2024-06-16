@@ -7,7 +7,6 @@ import { IoIosArrowForward } from "react-icons/io";
 
 function Overview() {
   const [data, setData] = useState([]);
-  console.log("🚀 ~ Overview ~ data:", data)
   const { allBudget } = useSelector((state: any) => state.getBudget);
   
   const formatDate = (dateString: any) => {

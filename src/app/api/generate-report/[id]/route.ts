@@ -25,9 +25,7 @@ export async function GET(req: NextRequest) {
           const budgetSpent = budget.expense?.reduce((expenseAcc: number, expense: any) => expenseAcc + expense.amount, 0);
             return acc + budgetSpent;
         }, 0);
-        console.log("🚀 ~ totalSpent ~ totalSpent:", totalSpent)
         const remainingAmount = totalBudget - totalSpent;
-        console.log("🚀 ~ GET ~ remainingAmount:", remainingAmount)
     
      
         const content = `

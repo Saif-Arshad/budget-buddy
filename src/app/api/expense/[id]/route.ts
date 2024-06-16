@@ -6,13 +6,11 @@ import Budget from "@/models/Budget.model";
 export async function GET(req: NextRequest) {
     const { pathname } = new URL(req.url);
     const slug = pathname.split('/').pop();
-    console.log(slug, pathname);
     await connectDB();
     try {
         const expenses = await Expense.find({
             budget: slug
         }).populate("budget");
-        console.log(expenses)
         return NextResponse.json({ expenses });
     } catch (error) {
         return NextResponse.json({ error: error });
@@ -22,7 +20,6 @@ export async function GET(req: NextRequest) {
 export async function DELETE(req: NextRequest) {
     const { pathname } = new URL(req.url);
     const slug = pathname.split('/').pop();
-    console.log(slug, pathname);
     await connectDB();
     try {
         const expense = await Expense.findByIdAndDelete(
@@ -30,7 +27,6 @@ export async function DELETE(req: NextRequest) {
                 _id: slug	
             }
             );
-        console.log("🚀 ~ DELETE ~ expense:", expense)
         if (expense && expense.budget) {
             await Budget.updateOne(
                 { _id: expense.budget },

@@ -15,7 +15,6 @@ function ExpenseTable(props: any) {
     const { symbol, id } = props;
 
     const { allExpense, isLoading, isError } = useSelector((state: any) => state.FetchExpense);
-    console.log('🚀 ~ AllExpenses ~ allExpense:', allExpense);
 
     const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
 

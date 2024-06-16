@@ -46,7 +46,6 @@ const PdfGenerator = () => {
   const currentDate = date.getDate();
   const month = date.toLocaleString("default", { month: "long" });
   const { allBudget } = useSelector((state: any) => state.getBudget);
-  console.log("🚀 ~ PdfGenerator ~ allBudget:", allBudget);
   const budgets = allBudget?.budget || [];
   const totalBudget = budgets.reduce((acc: number, budget: any) => acc + budget.amount, 0);
   const totalSpent = budgets.reduce((acc: number, budget: any) => {

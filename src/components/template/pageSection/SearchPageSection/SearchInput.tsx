@@ -14,7 +14,6 @@ function SearchInput() {
   const [searchText, setSearchText] = useState("Search");
   const { userEmail } = useCurrentUser();
   const [data, setData] = useState<any>([]);
-  console.log("🚀 ~ SearchInput ~ data:", data);
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
 
   const { allBudget } = useSelector((state: any) => state.getBudget);
@@ -29,7 +28,6 @@ function SearchInput() {
   const { deleteExpense } = useSelector((state: any) => state.deleteExpense);
   const { expense } = useSelector((state: any) => state.addExpense);
 
-  console.log(userEmail);
 
   useEffect(() => {
     if (userEmail) {
@@ -38,14 +36,11 @@ function SearchInput() {
   }, [userEmail, budget, deletebudget, newBudget, deleteExpense, expense]);
 
   const [search, setSearch] = useState("");
-  console.log("🚀 ~ SearchInput ~ search:", search);
 
   const filtereditems = data?.budget?.filter((item: any) => {
     return item.title.toLowerCase().includes(search.toLowerCase());
   });
-  console.log("🚀 ~ SearchInput ~ filtereditems:", filtereditems);
   const SearchLength = search?.length;
-  console.log("🚀 ~ SearchInput ~ SearchLength:", SearchLength);
   const searchHandler = (e: any) => {
     e.preventDefault();
     if(search==""){

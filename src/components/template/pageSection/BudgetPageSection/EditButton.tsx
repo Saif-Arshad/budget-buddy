@@ -22,16 +22,13 @@ import { FaRegEdit } from "react-icons/fa";
 
 function EditButton(props:any) {
     const {id} = props
-    console.log(id)
     const { budget} = useSelector(
       (state: any) => state.getBudget.allBudget
     );
     const cuurentUpdateBudget = budget.filter((item: any) => item._id === id);
-    console.log(cuurentUpdateBudget)
     const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
     const submitHandler = (value: any, { resetForm }: any) => {
       const allValues = {...value,id}
-      console.log(allValues);
       dispatch(updateBudget(allValues ));
       toast.success('Budget Updated SucessFully')
 
@@ -47,7 +44,6 @@ function EditButton(props:any) {
       });
    
     
-      console.log(Formik);
   return (
 
      <Dialog>

@@ -28,10 +28,8 @@ function DialogAddBudget() {
   const [selectedCurrency, setSelectedCurrency] = useState("");
   const currencySymbols = useSelector((state: any) => state.currency.items);
   const Budget = useSelector((state: any) => state.budget);
-  console.log(Budget);
   const submitHandler = (value: any, { resetForm }: any) => {
     const allValues = { ...value, userEmail };
-    console.log(allValues);
     dispatch(createBudget(allValues));
     resetForm();
     toast.success("Budget Created SucessFully")
@@ -52,7 +50,6 @@ function DialogAddBudget() {
     Formik.setFieldValue("currency", value);
   };
 
-  console.log(Formik);
 
   return (
     <>
